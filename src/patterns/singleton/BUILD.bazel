@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — singleton pattern.
+#
+# cc_library(
+#     name = "singleton",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "singleton_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":singleton",
+#         "@googletest//:gtest_main",
+#     ],
+# )

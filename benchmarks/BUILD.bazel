@@ -1,0 +1,4 @@
+package(default_visibility = ["//visibility:public"])
+
+# Open-dataset evaluations. Datasets themselves live in //data (gitignored)
+# and are fetched by tools/fetch_datasets.sh.

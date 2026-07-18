@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — uncomment and fill in as factor_graphs takes shape.
+#
+# cc_library(
+#     name = "factor_graphs",
+#     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
+#     hdrs = glob(["*.hpp"]),
+#     deps = [
+#         "//src/common:types",
+#         "@eigen",
+#     ],
+# )
+#
+# cc_test(
+#     name = "factor_graphs_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":factor_graphs",
+#         "@googletest//:gtest_main",
+#     ],
+# )

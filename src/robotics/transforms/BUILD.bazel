@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — uncomment and fill in as transforms takes shape.
+#
+# cc_library(
+#     name = "transforms",
+#     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
+#     hdrs = glob(["*.hpp"]),
+#     deps = [
+#         "//src/common:types",
+#         "@eigen",
+#     ],
+# )
+#
+# cc_test(
+#     name = "transforms_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":transforms",
+#         "@googletest//:gtest_main",
+#     ],
+# )

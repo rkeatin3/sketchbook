@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — uncomment and fill in as trajectory_opt takes shape.
+#
+# cc_library(
+#     name = "trajectory_opt",
+#     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
+#     hdrs = glob(["*.hpp"]),
+#     deps = [
+#         "//src/common:types",
+#         "@eigen",
+#     ],
+# )
+#
+# cc_test(
+#     name = "trajectory_opt_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":trajectory_opt",
+#         "@googletest//:gtest_main",
+#     ],
+# )

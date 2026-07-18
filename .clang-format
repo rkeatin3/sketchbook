@@ -1,0 +1,31 @@
+---
+Language: Cpp
+BasedOnStyle: Google
+
+ColumnLimit: 100
+IndentWidth: 2
+AccessModifierOffset: -1
+
+AllowShortFunctionsOnASingleLine: Inline
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Attach
+DerivePointerAlignment: false
+PointerAlignment: Left
+SeparateDefinitionBlocks: Always
+SpaceAfterTemplateKeyword: true
+
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Own header (matched first by clang-format's main-header rule)
+  - Regex: '^<(Eigen|unsupported)/'
+    Priority: 3
+  - Regex: '^<gtest/|^<gmock/'
+    Priority: 4
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: '^<.*>'
+    Priority: 2
+  - Regex: '^"src/'
+    Priority: 5
+  - Regex: '.*'
+    Priority: 6

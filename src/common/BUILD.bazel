@@ -1,0 +1,16 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "types",
+    hdrs = ["types.hpp"],
+    deps = ["@eigen"],
+)
+
+cc_test(
+    name = "types_test",
+    srcs = ["types_test.cpp"],
+    deps = [
+        ":types",
+        "@googletest//:gtest_main",
+    ],
+)

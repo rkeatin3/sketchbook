@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — type_erasure pattern.
+#
+# cc_library(
+#     name = "type_erasure",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "type_erasure_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":type_erasure",
+#         "@googletest//:gtest_main",
+#     ],
+# )

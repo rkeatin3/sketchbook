@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — composite pattern.
+#
+# cc_library(
+#     name = "composite",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "composite_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":composite",
+#         "@googletest//:gtest_main",
+#     ],
+# )

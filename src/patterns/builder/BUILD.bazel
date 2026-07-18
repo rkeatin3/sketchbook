@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — builder pattern.
+#
+# cc_library(
+#     name = "builder",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "builder_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":builder",
+#         "@googletest//:gtest_main",
+#     ],
+# )

@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — observer pattern.
+#
+# cc_library(
+#     name = "observer",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "observer_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":observer",
+#         "@googletest//:gtest_main",
+#     ],
+# )

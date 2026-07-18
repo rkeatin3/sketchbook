@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — template_method pattern.
+#
+# cc_library(
+#     name = "template_method",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "template_method_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":template_method",
+#         "@googletest//:gtest_main",
+#     ],
+# )

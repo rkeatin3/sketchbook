@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — factory pattern.
+#
+# cc_library(
+#     name = "factory",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "factory_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":factory",
+#         "@googletest//:gtest_main",
+#     ],
+# )

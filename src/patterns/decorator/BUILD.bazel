@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — decorator pattern.
+#
+# cc_library(
+#     name = "decorator",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "decorator_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":decorator",
+#         "@googletest//:gtest_main",
+#     ],
+# )

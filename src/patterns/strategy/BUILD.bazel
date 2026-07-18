@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — strategy pattern.
+#
+# cc_library(
+#     name = "strategy",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "strategy_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":strategy",
+#         "@googletest//:gtest_main",
+#     ],
+# )

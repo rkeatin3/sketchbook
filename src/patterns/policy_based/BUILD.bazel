@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — policy_based pattern.
+#
+# cc_library(
+#     name = "policy_based",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "policy_based_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":policy_based",
+#         "@googletest//:gtest_main",
+#     ],
+# )

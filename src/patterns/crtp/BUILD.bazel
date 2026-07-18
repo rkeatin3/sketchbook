@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — crtp pattern.
+#
+# cc_library(
+#     name = "crtp",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "crtp_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":crtp",
+#         "@googletest//:gtest_main",
+#     ],
+# )

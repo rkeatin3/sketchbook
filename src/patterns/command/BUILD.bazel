@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — command pattern.
+#
+# cc_library(
+#     name = "command",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "command_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":command",
+#         "@googletest//:gtest_main",
+#     ],
+# )

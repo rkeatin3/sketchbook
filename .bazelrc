@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Language standard — C++23 everywhere, no exceptions.
+# ---------------------------------------------------------------------------
+build --cxxopt=-std=c++23
+build --host_cxxopt=-std=c++23
+
+# bzlmod only; no legacy WORKSPACE.
+common --enable_bzlmod
+common --noenable_workspace
+
+# ---------------------------------------------------------------------------
+# Warnings — treat the compiler as a first reviewer.
+# ---------------------------------------------------------------------------
+build --cxxopt=-Wall
+build --cxxopt=-Wextra
+build --cxxopt=-Wpedantic
+build --cxxopt=-Wshadow
+build --cxxopt=-Wconversion
+build --cxxopt=-Wnon-virtual-dtor
+
+# ---------------------------------------------------------------------------
+# Test output
+# ---------------------------------------------------------------------------
+test --test_output=errors
+test --test_summary=detailed
+
+# ---------------------------------------------------------------------------
+# Named configurations
+# ---------------------------------------------------------------------------
+build:opt   --compilation_mode=opt
+build:dbg   --compilation_mode=dbg
+
+build:asan  --features=asan
+build:asan  --copt=-fno-omit-frame-pointer
+
+build:ubsan --features=ubsan
+
+build:strict --cxxopt=-Werror
+
+# Local developer overrides, gitignored.
+try-import %workspace%/user.bazelrc

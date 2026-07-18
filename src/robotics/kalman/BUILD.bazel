@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — uncomment and fill in as kalman takes shape.
+#
+# cc_library(
+#     name = "kalman",
+#     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
+#     hdrs = glob(["*.hpp"]),
+#     deps = [
+#         "//src/common:types",
+#         "@eigen",
+#     ],
+# )
+#
+# cc_test(
+#     name = "kalman_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":kalman",
+#         "@googletest//:gtest_main",
+#     ],
+# )

@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+# Template — visitor pattern.
+#
+# cc_library(
+#     name = "visitor",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "visitor_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":visitor",
+#         "@googletest//:gtest_main",
+#     ],
+# )

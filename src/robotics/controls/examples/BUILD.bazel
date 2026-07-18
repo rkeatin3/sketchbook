@@ -1,0 +1,9 @@
+package(default_visibility = ["//visibility:public"])
+
+# Runnable demonstrations for the controls module.
+#
+# cc_binary(
+#     name = "example",
+#     srcs = ["example.cpp"],
+#     deps = ["//src/robotics/controls"],
+# )
