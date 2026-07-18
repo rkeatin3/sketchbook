@@ -54,6 +54,13 @@ bazel build //... --config=strict  # Warnings as errors
   written out first, in `docs/`, before any code is committed.
 - **No frameworks as black boxes.** Algorithms are implemented from primitives.
   Eigen for linear algebra is the deliberate exception.
+- **The newest C++ available.** Exercising the current standard is a goal in
+  its own right — concepts over SFINAE, ranges over iterator pairs,
+  `std::expected` over error codes, `constexpr` wherever computation can move
+  to compile time. Bumping the standard is expected, not deferred.
+- **Written by hand.** The implementations and derivations here are mine. AI
+  assistance is for explanation, review, and critique — not for producing the
+  work. See [CLAUDE.md](CLAUDE.md).
 - **Classical first, ML second.** The classical method is implemented and
   understood before any learned extension is added, and the two are compared.
 - **Documentation is a wiki, not a changelog.** Topics cross-link
