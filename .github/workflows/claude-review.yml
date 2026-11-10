@@ -41,14 +41,18 @@ jobs:
                follow it? Look at naming, structure, function size, and
                whether comments explain the why and the math rather than
                the syntax.
-            3. Numerical stability: conditioning, loss of symmetry or
+            3. Design: abstractions and interfaces, separation of concerns,
+               coupling, and whether components meant to be swappable have
+               clean seams. Note where a different design would be simpler
+               or more flexible, and the trade-off involved.
+            4. Numerical stability: conditioning, loss of symmetry or
                positive-definiteness in covariances, catastrophic
                cancellation, singular cases.
-            4. Consistency with the derivation: names and equations should
+            5. Consistency with the derivation: names and equations should
                match the article and docs/conventions/notation.md.
-            5. Modern C++: a newer construct that would express the code
+            6. Modern C++: a newer construct that would express the code
                better.
-            6. Docs: broken cross-links, missing "See also" entries, unclear
+            7. Docs: broken cross-links, missing "See also" entries, unclear
                explanations.
 
             Explain each problem and why it matters. Point toward a fix, but
