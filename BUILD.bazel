@@ -1,9 +1,0 @@
-# Root package. Intentionally near-empty; targets live in src/, projects/,
-# and benchmarks/.
-
-package(default_visibility = ["//visibility:public"])
-
-filegroup(
-    name = "clang_format_config",
-    srcs = [".clang-format"],
-)

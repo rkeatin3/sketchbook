@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "llvm-vs-code-extensions.vscode-clangd",
+    "BazelBuild.vscode-bazel",
+    "charliermarsh.ruff",
+    "ms-python.python",
+    "ms-python.mypy-type-checker",
+    "redhat.vscode-yaml",
+    "emeraldwalk.RunOnSave"
+  ],
+  "unwantedRecommendations": [
+    // clangd replaces cpptools' IntelliSense engine; running both produces
+    // duplicate/conflicting diagnostics and squiggles.
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack"
+  ]
+}

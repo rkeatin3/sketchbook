@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bazel: Refresh compile_commands.json",
+      "type": "shell",
+      "command": "bazel run //tools:refresh_compile_commands",
+      "problemMatcher": [],
+      "presentation": { "reveal": "silent" },
+      "detail": "Regenerates the compilation database clangd uses for IntelliSense. Run after adding/changing BUILD.bazel targets."
+    },
+    {
+      "label": "Bazel: Build all",
+      "type": "shell",
+      "command": "bazel build //...",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Bazel: Test all",
+      "type": "shell",
+      "command": "bazel test //...",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Pre-commit: run all",
+      "type": "shell",
+      "command": "pre-commit run --all-files",
+      "problemMatcher": []
+    }
+  ]
+}

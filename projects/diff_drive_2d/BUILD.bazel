@@ -1,9 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-# Integration project: diff_drive_2d
-#
-# cc_binary(
-#     name = "diff_drive_2d",
-#     srcs = ["main.cpp"],
-#     deps = ["//src/common:types"],
-# )

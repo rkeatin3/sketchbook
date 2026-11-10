@@ -1,16 +1,12 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
-    name = "types",
-    hdrs = ["types.hpp"],
-    deps = ["@eigen"],
-)
-
 cc_test(
-    name = "types_test",
-    srcs = ["types_test.cpp"],
+    name = "toolchain_test",
+    srcs = ["toolchain_test.cpp"],
     deps = [
-        ":types",
+        "@eigen",
         "@googletest//:gtest_main",
     ],
 )

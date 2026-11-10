@@ -1,4 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-# ML infrastructure. Training happens in Python; this package holds the C++
-# inference side (ONNX Runtime bindings, tensor adapters, preprocessing).

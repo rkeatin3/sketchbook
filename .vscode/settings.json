@@ -1,0 +1,70 @@
+{
+  // clangd owns C++ IntelliSense (completion, navigation, diagnostics,
+  // inline clang-tidy) and formatting, driven by compile_commands.json.
+  // Kept fresh automatically by the emeraldwalk.RunOnSave rule below
+  // whenever a BUILD.bazel/MODULE.bazel/.bzl file is saved.
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--compile-commands-dir=${workspaceFolder}"
+  ],
+  "clangd.onConfigChanged": "restart",
+
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true
+  },
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true
+  },
+
+  // Python — ruff both lints and formats; mypy (strict, see pyproject.toml)
+  // runs as a separate whole-workspace diagnostics pass via its daemon.
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
+  "mypy-type-checker.reportingScope": "workspace",
+  "mypy-type-checker.preferDaemon": true,
+
+  // BUILD.bazel / .bzl — formatted with buildifier via the Bazel extension.
+  "[bazel]": {
+    "editor.formatOnSave": true
+  },
+
+  // The bazel-* symlinks fan out into the external build cache; excluding
+  // them keeps file watching, search, and clangd's own indexing from
+  // churning through gigabytes of build output.
+  "files.watcherExclude": {
+    "**/bazel-*/**": true
+  },
+  "search.exclude": {
+    "**/bazel-*": true
+  },
+  "files.exclude": {
+    "**/bazel-bin": true,
+    "**/bazel-out": true,
+    "**/bazel-sketchbook": true,
+    "**/bazel-testlogs": true
+  },
+
+  // Regenerates compile_commands.json whenever a build-graph-affecting file
+  // is saved, so clangd's IntelliSense doesn't silently go stale.
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "(BUILD\\.bazel|MODULE\\.bazel|\\.bzl)$",
+        "cmd": "bazel run //tools:refresh_compile_commands",
+        "isAsync": true
+      }
+    ]
+  }
+}

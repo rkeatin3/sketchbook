@@ -1,8 +1,7 @@
 """sketchbook — bzlmod module definition.
 
-Dependency versions below are pinned against the Bazel Central Registry.
-Check https://registry.bazel.build for newer releases and bump deliberately;
-this repo tracks versions as a matter of record, not automatically.
+Versions are pinned against the Bazel Central Registry
+(https://registry.bazel.build) and bumped deliberately.
 """
 
 module(
@@ -10,13 +9,17 @@ module(
     version = "0.1.0",
 )
 
-bazel_dep(name = "rules_cc", version = "0.1.1")
-bazel_dep(name = "googletest", version = "1.15.2")
-bazel_dep(name = "eigen", version = "3.4.0.bcr.2")
+bazel_dep(name = "rules_cc", version = "0.2.19")
+bazel_dep(name = "googletest", version = "1.17.0.bcr.2")
+bazel_dep(name = "eigen", version = "5.0.1.bcr.2")
 
-# Benchmarking (uncomment when first benchmark lands)
-# bazel_dep(name = "google_benchmark", version = "1.9.1")
-
-# Python interop for visualization / training pipelines
-# bazel_dep(name = "rules_python", version = "1.0.0")
-# bazel_dep(name = "pybind11_bazel", version = "2.13.6")
+# compile_commands.json generation for clangd and clang-tidy (dev-only).
+# hedron's refresh rule uses py_binary, which needs rules_python in the dep
+# graph. hedron isn't on the BCR, so it is pinned to a commit.
+bazel_dep(name = "rules_python", version = "1.9.1", dev_dependency = True)
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+git_override(
+    module_name = "hedron_compile_commands",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+    commit = "abb61a688167623088f8768cc9264798df6a9d10",
+)

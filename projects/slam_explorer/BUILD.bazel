@@ -1,9 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-# Integration project: slam_explorer
-#
-# cc_binary(
-#     name = "slam_explorer",
-#     srcs = ["main.cpp"],
-#     deps = ["//src/common:types"],
-# )

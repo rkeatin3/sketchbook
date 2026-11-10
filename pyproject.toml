@@ -1,0 +1,43 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+  "N",   # pep8-naming
+  "NPY", # numpy-specific
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["sketchbook"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+# Scientific/ML stack has patchy or absent stubs; don't fail CI over that.
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["src", "papers"]
+python_files = ["*_test.py", "test_*.py"]
+
+# Wiki toolchain. Install with `pip install --group docs` (pip >= 25.1).
+# Sphinx 9 requires Python >= 3.13.
+# Pinned so the strict (-W) build is reproducible; bump deliberately.
+[dependency-groups]
+docs = [
+  "sphinx==9.2.0",
+  "myst-parser==5.2.0",
+  "sphinx-book-theme==1.4.0",
+  "sphinx-proof==0.4.0",
+  "sphinxcontrib-bibtex==2.7.0",
+  "sphinx-tippy==0.4.3",
+  "sphinx-copybutton==0.5.2",
+  "sphinx-autobuild==2025.8.25",
+]

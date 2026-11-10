@@ -1,0 +1,120 @@
+name: C++
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: cpp-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}
+          repository-cache: true
+          cache-save: ${{ github.event_name != 'pull_request' }}
+
+      - name: bazel build
+        run: bazel build //...
+
+      - name: bazel test
+        run: bazel test //...
+
+  sanitize:
+    name: Sanitize (${{ matrix.config }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [asan, ubsan, tsan]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}-${{ matrix.config }}
+          repository-cache: true
+          cache-save: ${{ github.event_name != 'pull_request' }}
+
+      - name: bazel test --config=${{ matrix.config }}
+        run: bazel test //... --config=${{ matrix.config }}
+
+  format:
+    name: clang-format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install clang-format
+        run: sudo apt-get update && sudo apt-get install -y clang-format
+
+      - name: Check formatting
+        run: |
+          git ls-files -z '*.cpp' '*.hpp' '*.cc' '*.h' \
+            | xargs -0 --no-run-if-empty clang-format --dry-run --Werror
+
+  tidy:
+    name: clang-tidy (advisory)
+    runs-on: ubuntu-latest
+    continue-on-error: true # a tutor, not a gate — see .clang-tidy
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}-tidy
+          repository-cache: true
+          cache-save: ${{ github.event_name != 'pull_request' }}
+
+      - name: Generate compile_commands.json
+        run: bazel run //tools:refresh_compile_commands
+
+      - name: Install clang-tidy
+        run: sudo apt-get update && sudo apt-get install -y clang-tidy
+
+      - name: Run clang-tidy
+        run: |
+          git ls-files -z '*.cpp' '*.cc' \
+            | xargs -0 --no-run-if-empty clang-tidy -p .
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    continue-on-error: true # analytics, not a merge gate — see .codecov.yml
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}-coverage
+          repository-cache: true
+          cache-save: ${{ github.event_name != 'pull_request' }}
+
+      - name: Install lcov
+        run: sudo apt-get update && sudo apt-get install -y lcov
+
+      - name: bazel coverage
+        run: |
+          bazel coverage //... \
+            --combined_report=lcov \
+            --instrumentation_filter="^//src[/:],^//papers[/:]"
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: bazel-out/_coverage/_coverage_report.dat
+          flags: cpp
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}

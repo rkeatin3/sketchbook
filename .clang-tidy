@@ -18,7 +18,7 @@ Checks: >
   -cppcoreguidelines-non-private-member-variables-in-classes
 
 WarningsAsErrors: ''
-HeaderFilterRegex: '^src/|^projects/'
+HeaderFilterRegex: '^src/|^papers/'
 FormatStyle: file
 
 CheckOptions:

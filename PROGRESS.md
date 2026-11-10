@@ -1,50 +1,41 @@
 # Progress
 
-Running log of what is done and what is next. Updated as work lands, not
-retroactively.
-
-## Status legend
-
-`—` not started  ·  `~` in progress  ·  `x` complete
+What is done and what is next. Updated as work lands.
 
 ## Infrastructure
 
-- [x] Repository scaffolded (Bazel + bzlmod, C++23)
-- [x] clang-format / clang-tidy configured
-- [x] `//src/common:types` seed target compiling and tested
-- [ ] CI (build + test on push)
-- [ ] `compile_commands.json` generation for editor tooling
-- [ ] `tools/fetch_datasets.sh` implemented
+- [x] Bazel (bzlmod) + C++23, clang-format, clang-tidy
+- [x] CI: build, test, sanitizers (ASan/UBSan/TSan), format, advisory
+      clang-tidy, coverage, Python lint/type/test, strict wiki build
+- [x] Pre-commit hooks, VS Code + clangd setup
+- [x] Wiki: Sphinx + MyST, deployed to GitHub Pages from `main`
+- [x] `//src/common:toolchain_test` smoke test; delete once real tests land
+- [ ] GitHub remote pushed; Pages source set to "GitHub Actions"
+- [ ] Codecov project linked (`CODECOV_TOKEN` secret)
 
-## Robotics modules
+## Robotics
 
-| Module | Theory doc | Implementation | Tests | Examples |
+| Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| transforms      | — | — | — | — |
-| kalman          | — | — | — | — |
-| factor_graphs   | — | — | — | — |
-| tracking        | — | — | — | — |
-| planning        | — | — | — | — |
-| controls        | — | — | — | — |
-| trajectory_opt  | — | — | — | — |
+| transforms    | — | — | — | — |
+| kalman        | — | — | — | — |
+| factor_graphs | — | — | — | — |
+| tracking      | — | — | — | — |
+
+## Utilities
+
+| Module | Articles | Implementation | Tests |
+|---|---|---|---|
+| containers  | — | — | — |
+| concurrency | — | — | — |
 
 ## Design patterns
 
-None started. Order is flexible; `strategy`, `crtp`, and `type_erasure` are
-the natural entry points since they recur throughout the robotics modules.
-
-## Projects
-
-| Project | Status | Depends on |
-|---|---|---|
-| diff_drive_2d | — | transforms, controls |
-| quadrotor     | — | transforms, controls, trajectory_opt |
-| slam_explorer | — | transforms, factor_graphs, planning |
+None started.
 
 ## Next up
 
-1. `transforms`: derive SO(3) exp/log, implement, test against Eigen's
-   `AngleAxis` as an oracle.
-2. `transforms`: SE(3), adjoints, and the left/right Jacobians needed later
-   by the EKF and factor graph modules.
-3. Seed `papers/README.md` from accumulated email links.
+1. Create the GitHub remote, push, and enable Pages.
+2. Write the tracking roadmap into its hub.
+3. Sketch the repo's agent skills (`.claude/skills/`).
+4. Seed the papers reading queue.

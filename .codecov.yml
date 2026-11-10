@@ -1,0 +1,19 @@
+coverage:
+  status:
+    project:
+      default:
+        informational: true
+    patch:
+      default:
+        informational: true
+
+flags:
+  cpp:
+    paths:
+      - src/
+      - papers/
+  python:
+    paths:
+      - "**/*.py"
+
+comment: false

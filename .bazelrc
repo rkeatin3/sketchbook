@@ -4,9 +4,9 @@
 build --cxxopt=-std=c++23
 build --host_cxxopt=-std=c++23
 
-# bzlmod only; no legacy WORKSPACE.
-common --enable_bzlmod
-common --noenable_workspace
+# hedron_compile_commands uses the native py_*/cc_binary symbols; autoload
+# just those. Our own targets load rules explicitly.
+common --incompatible_autoload_externally=+py_binary,+py_library,+py_test,+cc_binary
 
 # ---------------------------------------------------------------------------
 # Warnings — treat the compiler as a first reviewer.
@@ -34,6 +34,9 @@ build:asan  --features=asan
 build:asan  --copt=-fno-omit-frame-pointer
 
 build:ubsan --features=ubsan
+
+build:tsan  --features=tsan
+build:tsan  --copt=-fno-omit-frame-pointer
 
 build:strict --cxxopt=-Werror
 

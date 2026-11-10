@@ -1,4 +1,4 @@
-# papers/
+# Papers
 
 Paper reproductions and a reading queue.
 

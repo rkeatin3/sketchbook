@@ -1,74 +1,60 @@
 # sketchbook
 
-A long-term personal reference environment for modern C++, robotics
-algorithms, and machine learning integration.
+[![C++ CI](https://github.com/rkeatin3/sketchbook/actions/workflows/cpp.yml/badge.svg)](https://github.com/rkeatin3/sketchbook/actions/workflows/cpp.yml)
+[![Python CI](https://github.com/rkeatin3/sketchbook/actions/workflows/python.yml/badge.svg)](https://github.com/rkeatin3/sketchbook/actions/workflows/python.yml)
+[![Docs](https://github.com/rkeatin3/sketchbook/actions/workflows/docs.yml/badge.svg)](https://rkeatin3.github.io/sketchbook/)
+[![codecov](https://codecov.io/gh/rkeatin3/sketchbook/branch/main/graph/badge.svg)](https://codecov.io/gh/rkeatin3/sketchbook)
 
-This is not a library. It is a place to build things carefully, derive the
-mathematics before writing the code, and leave behind documentation good
-enough to relearn from years later.
+A personal sketchbook for robotics and software. On the robotics side, my
+first focus is estimation and tracking. On the software side, I plan to
+explore common design patterns and utilities, and to get up to speed with
+modern C++. I'm also using it to experiment with AI in my learning and
+development workflow.
 
-## Layout
+With learning as the main goal, the priorities are:
 
-```
-src/
-  common/        Shared types and utilities
-  robotics/      Core algorithm modules, each with examples/
-    transforms/      Lie groups: SO(3), SE(3), rigid body kinematics
-    kalman/          KF, EKF, UKF
-    factor_graphs/   Factor graphs, iSAM2-style incremental inference
-    tracking/        Multi-object tracking, data association
-    planning/        RRT, PRM, graph search, optimization-based planning
-    controls/        PID, LQR, MPC, nonlinear control
-    trajectory_opt/  Differential flatness, collocation
-  patterns/      Design patterns (GoF + Iglberger)
-  ml/            ONNX inference, tensor adapters
-projects/        Integrated systems: diff_drive_2d, quadrotor, slam_explorer
-papers/          Paper reproductions
-benchmarks/      Open-dataset evaluations
-docs/            Wiki: overview → theory → implementation → examples
-data/            Datasets (gitignored)
-tools/           Repo scripts
-```
+- Concepts and algorithms are derived and explored before they are
+  implemented.
+- Build from scratch by default. Third-party libraries come in only when
+  writing the thing myself would be prohibitive or beside the point (e.g.
+  Eigen for linear algebra), or when a toy implementation wouldn't be enough.
+- Readability trumps performance.
+- Examples show the math and the code in practical use, with visualizations
+  wherever possible.
+- The [documentation](https://rkeatin3.github.io/sketchbook/) is a reference
+  with inline math, code, and visualizations, links between related concepts,
+  and a glossary of terms.
 
-## Building
+## Contents
 
-Requires Bazel (see `.bazelversion`) and a C++23-capable compiler.
+- `src/robotics/`: transforms and Lie groups, Kalman filtering, factor graphs,
+  multi-object tracking
+- `src/patterns/`: design patterns in modern C++
+- `src/utilities/`: data structures and concurrency primitives
+- `papers/`: paper reproductions and a reading queue
+- `docs/`: wiki configuration and cross-cutting pages. Module docs live beside
+  their code.
+
+Later, maybe: motion planning, controls, trajectory optimization, integrated
+robot projects, and benchmarks on open datasets.
+
+## Development
+
+Requires Bazel (see `.bazelversion`) and a C++23 compiler.
 
 ```bash
 bazel build //...
-bazel test  //...
+bazel test //...                  # --config=asan | ubsan | tsan for sanitizers
+
+pip install pre-commit && pre-commit install   # format/lint checks on commit
+
+pip install --group docs          # wiki toolchain (Python >= 3.13)
+sphinx-autobuild -c docs . docs/_build/html \
+  --watch docs --watch src --re-ignore 'bazel-.*'   # live wiki preview
 ```
 
-Useful configurations:
+CI runs the build, tests, sanitizers, format and lint checks, coverage, and a
+strict wiki build on every push. The wiki deploys to GitHub Pages from `main`.
 
-```bash
-bazel test //... --config=asan     # AddressSanitizer
-bazel test //... --config=ubsan    # UndefinedBehaviorSanitizer
-bazel build //... --config=opt     # Optimized
-bazel build //... --config=strict  # Warnings as errors
-```
-
-## Working principles
-
-- **Derivation before implementation.** Every algorithm gets its mathematics
-  written out first, in `docs/`, before any code is committed.
-- **No frameworks as black boxes.** Algorithms are implemented from primitives.
-  Eigen for linear algebra is the deliberate exception.
-- **The newest C++ available.** Exercising the current standard is a goal in
-  its own right — concepts over SFINAE, ranges over iterator pairs,
-  `std::expected` over error codes, `constexpr` wherever computation can move
-  to compile time. Bumping the standard is expected, not deferred.
-- **Written by hand.** The implementations and derivations here are mine. AI
-  assistance is for explanation, review, and critique — not for producing the
-  work. See [CLAUDE.md](CLAUDE.md).
-- **Classical first, ML second.** The classical method is implemented and
-  understood before any learned extension is added, and the two are compared.
-- **Documentation is a wiki, not a changelog.** Topics cross-link
-  (transforms ↔ kalman ↔ factor_graphs) and read like a textbook.
-- **Python is welcome** for visualization, training, and analysis. C++ is the
-  production language. The ML bridge is: train in PyTorch → export ONNX →
-  infer in C++.
-
-## Progress
-
-See [PROGRESS.md](PROGRESS.md).
+Editor setup for VS Code is described in [.vscode/README.md](.vscode/README.md).
+Progress is tracked in [PROGRESS.md](PROGRESS.md).

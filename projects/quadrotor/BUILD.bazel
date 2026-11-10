@@ -1,9 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-# Integration project: quadrotor
-#
-# cc_binary(
-#     name = "quadrotor",
-#     srcs = ["main.cpp"],
-#     deps = ["//src/common:types"],
-# )

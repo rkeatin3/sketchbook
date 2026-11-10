@@ -1,3 +1,7 @@
+# cc_* rules come from rules_cc. Uncomment alongside the template below.
+# load("@rules_cc//cc:cc_library.bzl", "cc_library")
+# load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 package(default_visibility = ["//visibility:public"])
 
 # Template — uncomment and fill in as transforms takes shape.
@@ -7,7 +11,6 @@ package(default_visibility = ["//visibility:public"])
 #     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
 #     hdrs = glob(["*.hpp"]),
 #     deps = [
-#         "//src/common:types",
 #         "@eigen",
 #     ],
 # )
