@@ -55,6 +55,8 @@ sphinx-autobuild -c docs . docs/_build/html \
 
 CI runs the build, tests, sanitizers, format and lint checks, coverage, and a
 strict wiki build on every push. The wiki deploys to GitHub Pages from `main`.
+Pull requests get an automatic Claude review; mention `@claude` in a comment
+for follow-ups.
 
 Editor setup for VS Code is described in [.vscode/README.md](.vscode/README.md).
 Progress is tracked in [PROGRESS.md](PROGRESS.md).

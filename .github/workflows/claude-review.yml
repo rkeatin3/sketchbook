@@ -1,0 +1,55 @@
+name: Claude Review
+
+# Automatic review when a PR is opened or marked ready. Follow-ups go through
+# @claude mentions (claude.yml), so pushes to an open PR don't re-trigger it.
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  review:
+    # Skip drafts, and PRs from forks (which can't read the token secret).
+    if: >-
+      !github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            Review this pull request as a careful colleague would. Read
+            CLAUDE.md first: this repository is for Ryan's learning, and
+            reviewing is the one role with no restrictions.
+
+            Focus on, in order:
+            1. Correctness: math, algorithms, edge cases, and tests that
+               would miss a bug.
+            2. Numerical stability: conditioning, loss of symmetry or
+               positive-definiteness in covariances, catastrophic
+               cancellation, singular cases.
+            3. Consistency with the derivation: names and equations should
+               match the article and docs/conventions/notation.md.
+            4. Modern C++: a newer construct that would express the code
+               better.
+            5. Docs: broken cross-links, missing "See also" entries, unclear
+               explanations.
+
+            Explain each problem and why it matters. Point toward a fix, but
+            don't rewrite the implementation; the code is Ryan's to change.
+            Use inline comments for specific lines, and one top-level comment
+            to summarize. If there is nothing significant, say so briefly
+            rather than listing nitpicks.
+          claude_args: >-
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
