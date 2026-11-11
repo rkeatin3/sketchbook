@@ -10,7 +10,7 @@ What is done and what is next. Updated as work lands.
 - [x] Pre-commit hooks, VS Code + clangd setup
 - [x] Wiki: Sphinx + MyST, deployed to GitHub Pages from `main`
 - [x] `//src/common:toolchain_test` smoke test; delete once real tests land
-- [ ] GitHub remote pushed; Pages source set to "GitHub Actions"
+- [x] GitHub repo, Pages deploy, and branch protection on `main`
 - [ ] Codecov project linked (`CODECOV_TOKEN` secret)
 
 ## Robotics
@@ -35,7 +35,7 @@ None started.
 
 ## Next up
 
-1. Create the GitHub remote, push, and enable Pages.
-2. Write the tracking roadmap into its hub.
-3. Sketch the repo's agent skills (`.claude/skills/`).
-4. Seed the papers reading queue.
+1. Tracking phase 0: foundations and the 2D simulator (see the
+   [tracking roadmap](src/robotics/tracking/roadmap.md)).
+2. Sketch the repo's agent skills (`.claude/skills/`).
+3. Seed the papers reading queue.

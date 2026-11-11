@@ -16,12 +16,14 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Roadmap
 
-_The planned articles, in the order they build on each other._
+See {doc}`roadmap`: the goal, phases, reading, and datasets.
 
 ## Articles
 
 ```{toctree}
 :maxdepth: 1
+
+roadmap
 ```
 
 ## Related modules
