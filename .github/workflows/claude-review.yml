@@ -58,7 +58,7 @@ jobs:
             Explain each problem and why it matters. Point toward a fix, but
             don't rewrite the implementation; the code is Ryan's to change.
             Use inline comments for specific lines, and one top-level comment
-            to summarize. If there is nothing significant, say so briefly
-            rather than listing nitpicks.
+            to summarize. Nitpicks are welcome, but prefix them with
+            "Nit:" so they're distinguishable from real problems.
           claude_args: >-
             --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
