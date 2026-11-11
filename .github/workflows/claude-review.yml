@@ -1,0 +1,64 @@
+name: Claude Review
+
+# Automatic review when a PR is opened or marked ready. Follow-ups go through
+# @claude mentions (claude.yml), so pushes to an open PR don't re-trigger it.
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  review:
+    # Skip drafts, and PRs from forks (which can't read the token secret).
+    if: >-
+      !github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            Review this pull request as a careful colleague would. Read
+            CLAUDE.md first: this repository is for Ryan's learning, and
+            reviewing is the one role with no restrictions.
+
+            Focus on, in order:
+            1. Correctness: math, algorithms, edge cases, and tests that
+               would miss a bug.
+            2. Readability: this repository puts readability ahead of
+               performance. Could someone relearning this years from now
+               follow it? Look at naming, structure, function size, and
+               whether comments explain the why and the math rather than
+               the syntax.
+            3. Design: abstractions and interfaces, separation of concerns,
+               coupling, and whether components meant to be swappable have
+               clean seams. Note where a different design would be simpler
+               or more flexible, and the trade-off involved.
+            4. Numerical stability: conditioning, loss of symmetry or
+               positive-definiteness in covariances, catastrophic
+               cancellation, singular cases.
+            5. Consistency with the derivation: names and equations should
+               match the article and docs/conventions/notation.md.
+            6. Modern C++: a newer construct that would express the code
+               better.
+            7. Docs: broken cross-links, missing "See also" entries, unclear
+               explanations.
+
+            Explain each problem and why it matters. Point toward a fix, but
+            don't rewrite the implementation; the code is Ryan's to change.
+            Use inline comments for specific lines, and one top-level comment
+            to summarize. Nitpicks are welcome, but prefix them with
+            "Nit:" so they're distinguishable from real problems.
+          claude_args: >-
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
