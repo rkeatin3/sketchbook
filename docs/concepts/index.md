@@ -10,4 +10,8 @@ nothing that links to it breaks.
 
 ```{toctree}
 :maxdepth: 1
+
+characteristic_function
+cholesky_factorization
+chi_squared_distribution
 ```

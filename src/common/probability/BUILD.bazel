@@ -1,0 +1,22 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
+package(default_visibility = ["//visibility:public"])
+
+# Header-only: the types are templated on a compile-time dimension.
+cc_library(
+    name = "probability",
+    hdrs = glob(["*.hpp"]),
+    deps = [
+        "@eigen",
+    ],
+)
+
+cc_test(
+    name = "probability_test",
+    srcs = glob(["*_test.cpp"]),
+    deps = [
+        ":probability",
+        "@googletest//:gtest_main",
+    ],
+)

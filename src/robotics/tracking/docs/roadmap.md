@@ -63,7 +63,8 @@ Each phase adds one main idea. Start in 2D with synthetic data.
 0. **Foundations and simulator.** Gaussian sampling, Mahalanobis distance, and
    a 2D scenario simulator with known ground truth, configurable motion and
    measurement noise, missed detections, and clutter. Probably partly in
-   `src/common/`, since kalman and factor_graphs use the same tools.
+   `src/common/`, since kalman and factor_graphs use the same tools. The
+   Gaussian work has its own plan: {ref}`probability-plan`.
 1. **Linear Kalman filter** with a constant-velocity model, validated with
    NEES/NIS against the simulator.
 2. **Nonlinear measurements:** EKF and UKF with a polar (radar-like)

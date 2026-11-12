@@ -35,6 +35,7 @@ follow the links, or use the search box, the {doc}`glossary`, or the
 :hidden:
 :caption: Foundations
 
+/src/common/probability/README
 concepts/index
 ```
 
