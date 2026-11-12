@@ -16,14 +16,14 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Roadmap
 
-See {doc}`roadmap`: the goal, phases, reading, and datasets.
+See {doc}`docs/roadmap`: the goal, phases, reading, and datasets.
 
 ## Articles
 
 ```{toctree}
 :maxdepth: 1
 
-roadmap
+docs/roadmap
 ```
 
 ## Related modules
