@@ -15,7 +15,7 @@ article-template
 | Page | Location |
 |---|---|
 | Module hub | `src/<area>/<module>/README.md` |
-| Article about implemented code | Beside the code: `src/<area>/<module>/<topic>.md` |
+| Article about implemented code | In the module's `docs/`: `src/<area>/<module>/docs/<topic>.md` |
 | Article with no code | `docs/concepts/<topic>.md` |
 | Glossary entry | `docs/glossary.md` |
 | Citation | `docs/references.bib` |
@@ -57,7 +57,7 @@ file, so the docs never drift from the code. Prefer named markers to line
 numbers, because markers survive edits:
 
 ````markdown
-```{literalinclude} mahalanobis.hpp
+```{literalinclude} ../mahalanobis.hpp
 :language: cpp
 :start-after: "[doc:mahalanobis]"
 :end-before: "[/doc:mahalanobis]"
@@ -72,8 +72,8 @@ with the region marked in the source:
 // [/doc:mahalanobis]
 ```
 
-In the other direction, each header's top comment names the article it
-implements by its path relative to the repository root.
+In the other direction, each header's top comment names the articles it
+implements, or its module hub, by path relative to the repository root.
 
 ## Math
 

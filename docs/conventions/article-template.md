@@ -42,7 +42,7 @@ floating point, and how the implementation guards against it.
 Design decisions and how the code maps to the derivation. Name the equation
 each function implements and embed the code:
 
-```{literalinclude} topic.hpp
+```{literalinclude} ../topic.hpp
 :language: cpp
 :start-after: "[doc:topic]"
 :end-before: "[/doc:topic]"
