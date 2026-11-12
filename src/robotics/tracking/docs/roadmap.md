@@ -64,7 +64,8 @@ Each phase adds one main idea. Start in 2D with synthetic data.
    a 2D scenario simulator with known ground truth, configurable motion and
    measurement noise, missed detections, and clutter. The Gaussian tools go in
    the probability module under `src/math/`, which the filters and factor
-   graphs share; the simulator lives here in tracking.
+   graphs share, and has its own plan: {ref}`probability-plan`. The simulator
+   lives here in tracking.
 1. **The Bayes filter and a histogram filter.**
 2. **Linear Kalman filter** with a constant-velocity model.
 3. **Nonlinear measurements:** EKF, UKF, and a particle filter with a polar
