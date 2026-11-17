@@ -13,14 +13,24 @@ What is done and what is next. Updated as work lands.
 - [x] GitHub repo, Pages deploy, and branch protection on `main`
 - [ ] Codecov project linked (`CODECOV_TOKEN` secret)
 
+## Math
+
+| Module | Articles | Implementation | Tests | Examples |
+|---|---|---|---|---|
+| lie_groups | — | — | — | — |
+
+## Estimation
+
+| Module | Articles | Implementation | Tests | Examples |
+|---|---|---|---|---|
+| filtering     | — | — | — | — |
+| factor_graphs | — | — | — | — |
+
 ## Robotics
 
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| transforms    | — | — | — | — |
-| kalman        | — | — | — | — |
-| factor_graphs | — | — | — | — |
-| tracking      | — | — | — | — |
+| tracking | — | — | — | — |
 
 ## Utilities
 

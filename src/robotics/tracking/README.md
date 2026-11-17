@@ -12,7 +12,7 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Prerequisites
 
-- {doc}`Kalman Filtering </src/robotics/kalman/README>`
+- {doc}`Filtering </src/estimation/filtering/README>`
 
 ## Roadmap
 
@@ -28,8 +28,8 @@ docs/roadmap
 
 ## Related modules
 
-- {doc}`Transforms </src/robotics/transforms/README>`
-- {doc}`Factor Graphs </src/robotics/factor_graphs/README>`
+- {doc}`Lie Groups </src/math/lie_groups/README>`
+- {doc}`Factor Graphs </src/estimation/factor_graphs/README>`
 
 ## References
 
