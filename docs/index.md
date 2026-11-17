@@ -4,14 +4,26 @@ A personal reference wiki for robotics and modern C++. Start anywhere and
 follow the links, or use the search box, the {doc}`glossary`, or the
 {ref}`genindex`.
 
+## Math
+
+| Module | Topic | Builds on |
+|---|---|---|
+| {doc}`lie_groups </src/math/lie_groups/README>` | Lie groups, SO(3), SE(3), rigid body kinematics | linear algebra |
+
+Background with no code of its own is in {doc}`concepts/index`.
+
+## Estimation
+
+| Module | Topic | Builds on |
+|---|---|---|
+| {doc}`filtering </src/estimation/filtering/README>` | Bayes, histogram, Kalman-family, and particle filters | probability, lie_groups |
+| {doc}`factor_graphs </src/estimation/factor_graphs/README>` | Factor graphs, SLAM, incremental smoothing | lie_groups, filtering |
+
 ## Robotics
 
 | Module | Topic | Builds on |
 |---|---|---|
-| {doc}`transforms </src/robotics/transforms/README>` | Lie groups, SO(3), SE(3), rigid body kinematics | linear algebra |
-| {doc}`kalman </src/robotics/kalman/README>` | KF, EKF, UKF | transforms, probability |
-| {doc}`factor_graphs </src/robotics/factor_graphs/README>` | Factor graphs, SLAM, incremental smoothing | transforms, kalman |
-| {doc}`tracking </src/robotics/tracking/README>` | Multi-object tracking, data association | kalman |
+| {doc}`tracking </src/robotics/tracking/README>` | Multi-object tracking, data association | filtering |
 
 ## Software
 
@@ -23,19 +35,25 @@ follow the links, or use the search box, the {doc}`glossary`, or the
 
 ```{toctree}
 :hidden:
-:caption: Robotics
+:caption: Math
 
-/src/robotics/transforms/README
-/src/robotics/kalman/README
-/src/robotics/factor_graphs/README
-/src/robotics/tracking/README
+/src/math/lie_groups/README
+concepts/index
 ```
 
 ```{toctree}
 :hidden:
-:caption: Foundations
+:caption: Estimation
 
-concepts/index
+/src/estimation/filtering/README
+/src/estimation/factor_graphs/README
+```
+
+```{toctree}
+:hidden:
+:caption: Robotics
+
+/src/robotics/tracking/README
 ```
 
 ```{toctree}

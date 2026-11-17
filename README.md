@@ -27,8 +27,10 @@ With learning as the main goal, the priorities are:
 
 ## Contents
 
-- `src/robotics/`: transforms and Lie groups, Kalman filtering, factor graphs,
-  multi-object tracking
+- `src/math/`: Lie groups
+- `src/estimation/`: Bayesian filtering (histogram, Kalman-family, particle)
+  and factor graphs
+- `src/robotics/`: multi-object tracking
 - `src/patterns/`: design patterns in modern C++
 - `src/utilities/`: data structures and concurrency primitives
 - `papers/`: paper reproductions and a reading queue

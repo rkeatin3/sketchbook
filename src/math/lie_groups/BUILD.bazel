@@ -4,10 +4,10 @@
 
 package(default_visibility = ["//visibility:public"])
 
-# Template — uncomment and fill in as kalman takes shape.
+# Template — uncomment and fill in as lie_groups takes shape.
 #
 # cc_library(
-#     name = "kalman",
+#     name = "lie_groups",
 #     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
 #     hdrs = glob(["*.hpp"]),
 #     deps = [
@@ -16,10 +16,10 @@ package(default_visibility = ["//visibility:public"])
 # )
 #
 # cc_test(
-#     name = "kalman_test",
+#     name = "lie_groups_test",
 #     srcs = glob(["*_test.cpp"]),
 #     deps = [
-#         ":kalman",
+#         ":lie_groups",
 #         "@googletest//:gtest_main",
 #     ],
 # )

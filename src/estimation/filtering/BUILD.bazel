@@ -4,10 +4,10 @@
 
 package(default_visibility = ["//visibility:public"])
 
-# Template — uncomment and fill in as transforms takes shape.
+# Template — uncomment and fill in as filtering takes shape.
 #
 # cc_library(
-#     name = "transforms",
+#     name = "filtering",
 #     srcs = glob(["*.cpp"], exclude = ["*_test.cpp"]),
 #     hdrs = glob(["*.hpp"]),
 #     deps = [
@@ -16,10 +16,10 @@ package(default_visibility = ["//visibility:public"])
 # )
 #
 # cc_test(
-#     name = "transforms_test",
+#     name = "filtering_test",
 #     srcs = glob(["*_test.cpp"]),
 #     deps = [
-#         ":transforms",
+#         ":filtering",
 #         "@googletest//:gtest_main",
 #     ],
 # )

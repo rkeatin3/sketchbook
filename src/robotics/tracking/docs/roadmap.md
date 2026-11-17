@@ -12,8 +12,8 @@ approaches can be compared on the same data:
 
 - **Data association:** greedy, global nearest neighbor (GNN), probabilistic
   (JPDA)
-- **Estimator:** Kalman-family filters, and later a factor graph (fixed-lag
-  smoothing)
+- **Estimator:** Kalman-family and particle filters, and later a factor graph
+  (fixed-lag smoothing)
 - **Tracking method:** single-hypothesis, multi-hypothesis (MHT), random
   finite sets (PHD, LMB, PMBM)
 - **Motion models:** constant velocity, coordinated turn, and mixtures (IMM)
@@ -62,25 +62,33 @@ Each phase adds one main idea. Start in 2D with synthetic data.
 
 0. **Foundations and simulator.** Gaussian sampling, Mahalanobis distance, and
    a 2D scenario simulator with known ground truth, configurable motion and
-   measurement noise, missed detections, and clutter. Probably partly in
-   `src/common/`, since kalman and factor_graphs use the same tools.
-1. **Linear Kalman filter** with a constant-velocity model, validated with
+   measurement noise, missed detections, and clutter. The shared math goes in
+   `src/math/`, since the filters and factor graphs use the same tools.
+1. **The Bayes filter and a histogram filter.** The general predict–update
+   recursion, implemented on a grid (e.g. 1D or 2D localization with a
+   multimodal belief). Sets up the Kalman filter as the recursion's Gaussian
+   special case, and gives the estimator interface a non-Gaussian
+   implementation to design around.
+2. **Linear Kalman filter** with a constant-velocity model, validated with
    NEES/NIS against the simulator.
-2. **Nonlinear measurements:** EKF and UKF with a polar (radar-like)
-   measurement model.
-3. **Gating and GNN,** including a hand-written assignment solver (Hungarian
+3. **Nonlinear measurements:** EKF, UKF, and a particle filter with a polar
+   (radar-like) measurement model. The particle filter is the reference where
+   the Gaussian filters struggle.
+4. **Gating and GNN,** including a hand-written assignment solver (Hungarian
    or auction).
-4. **Track management.**
-5. **Probabilistic and multi-hypothesis association:** JPDA, then MHT.
-6. **Random finite sets:** Poisson point processes, then GM-PHD, then LMB or
+5. **Track management.**
+6. **Probabilistic and multi-hypothesis association:** JPDA, then MHT.
+7. **Random finite sets:** Poisson point processes, then GM-PHD, then LMB or
    PMBM.
-7. **3D and real sensors:** SO(3)/SE(3) from `transforms`, ego-motion, and a
+8. **3D and real sensors:** SO(3)/SE(3) from `lie_groups`, ego-motion, and a
    factor-graph estimator.
-8. **Real data,** and later learned detectors feeding the tracker.
+9. **Real data,** and later learned detectors feeding the tracker.
 
-### Transforms
+The filters (phases 1–3) live in the filtering module, not in tracking.
 
-SE(2) is enough for phases 0–6. SO(3)/SE(3), with exp/log and the Jacobians,
+### Lie groups
+
+SE(2) is enough for phases 0–7. SO(3)/SE(3), with exp/log and the Jacobians,
 is needed before 3D sensor fusion and factor graphs.
 
 ### Simulator questions to work through
@@ -110,14 +118,17 @@ small $Q$), and tracks forming and dying in clutter.
   Navigation*: the classical foundation
 - Blackman & Popoli, *Design and Analysis of Modern Tracking Systems*: GNN,
   MHT, practical engineering
+- Thrun, Burgard, Fox, *Probabilistic Robotics*: the Bayes filter, histogram
+  and particle filters, and the Kalman family from a robotics angle (phases
+  1–3)
 - Särkkä & Svensson, *Bayesian Filtering and Smoothing* (2nd ed., free PDF):
-  KF, EKF, UKF, and smoothers
+  KF, EKF, UKF, particle filters, and smoothers
 - Chalmers, *Multi-Object Tracking for Automotive Systems* (edX): follows
-  roughly phases 3–6 of this roadmap
+  roughly phases 4–7 of this roadmap
 - Mahler, *Statistical Multisource-Multitarget Information Fusion*: RFS
   theory (dense; use as a reference)
 - Solà et al., "A micro Lie theory for state estimation in robotics", and
-  Barfoot, *State Estimation for Robotics* (2nd ed., free): transforms
+  Barfoot, *State Estimation for Robotics* (2nd ed., free): Lie groups
 - Dellaert & Kaess, *Factor Graphs for Robot Perception*
 - Stone Soup (Python tracking framework): for comparing designs and as a test
   oracle

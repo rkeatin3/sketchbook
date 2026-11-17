@@ -4,7 +4,7 @@
 Graphical formulation of inference over robot trajectories, and incremental smoothing in the style of iSAM2.
 
 **Status:** not started ·
-[source](https://github.com/rkeatin3/sketchbook/tree/main/src/robotics/factor_graphs)
+[source](https://github.com/rkeatin3/sketchbook/tree/main/src/estimation/factor_graphs)
 
 ## Why it matters
 
@@ -12,8 +12,8 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Prerequisites
 
-- {doc}`Transforms </src/robotics/transforms/README>`
-- {doc}`Kalman Filtering </src/robotics/kalman/README>`
+- {doc}`Lie Groups </src/math/lie_groups/README>`
+- {doc}`Filtering </src/estimation/filtering/README>`
 
 ## Roadmap
 
