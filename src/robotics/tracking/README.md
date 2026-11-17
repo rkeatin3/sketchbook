@@ -16,7 +16,7 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Roadmap
 
-See {doc}`docs/roadmap`: the goal, phases, reading, and datasets.
+See {ref}`tracking-roadmap`: the goal, phases, reading, and datasets.
 
 ## Articles
 

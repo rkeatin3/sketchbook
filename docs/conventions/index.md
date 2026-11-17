@@ -12,10 +12,14 @@ article-template
 
 ## Where pages live
 
+There are two kinds of `docs/` directory. The repository root's `docs/` holds
+the wiki configuration and pages that don't belong to any one module. Each
+module's own `docs/` holds that module's articles.
+
 | Page | Location |
 |---|---|
 | Module hub | `src/<area>/<module>/README.md` |
-| Article about implemented code | In the module's `docs/`: `src/<area>/<module>/docs/<topic>.md` |
+| Article about a module's code | `src/<area>/<module>/docs/<topic>.md` |
 | Article with no code | `docs/concepts/<topic>.md` |
 | Glossary entry | `docs/glossary.md` |
 | Citation | `docs/references.bib` |
