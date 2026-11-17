@@ -48,8 +48,8 @@ conservative reading.
   why when it isn't obvious. Flag newer-standard features that would help.
 - **Documentation** is a Sphinx + MyST wiki built from the repository root.
   Module hubs are `src/<area>/<module>/README.md`. Articles cover one concept
-  each and sit beside the code they explain; articles with no code go in
+  each and sit in their module's `docs/`; articles with no code go in
   `docs/concepts/`. Link by label, never by file path, and cross-link
   generously. See `docs/conventions/` for the template and syntax.
-- **Build:** Bazel with bzlmod only. Namespace `sketchbook::<area>`; naming
-  follows `.clang-tidy`.
+- **Build:** Bazel with bzlmod only. One namespace per module, named after
+  it (e.g. `probability`); naming follows `.clang-tidy`.

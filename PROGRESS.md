@@ -36,6 +36,6 @@ None started.
 ## Next up
 
 1. Tracking phase 0: foundations and the 2D simulator (see the
-   [tracking roadmap](src/robotics/tracking/roadmap.md)).
+   [tracking roadmap](src/robotics/tracking/docs/roadmap.md)).
 2. Sketch the repo's agent skills (`.claude/skills/`).
 3. Seed the papers reading queue.

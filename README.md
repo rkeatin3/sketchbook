@@ -32,8 +32,8 @@ With learning as the main goal, the priorities are:
 - `src/patterns/`: design patterns in modern C++
 - `src/utilities/`: data structures and concurrency primitives
 - `papers/`: paper reproductions and a reading queue
-- `docs/`: wiki configuration and cross-cutting pages. Module docs live beside
-  their code.
+- `docs/`: wiki configuration and cross-cutting pages. Each module keeps its
+  hub `README.md` at its root and its articles in its own `docs/`.
 
 Later, maybe: motion planning, controls, trajectory optimization, integrated
 robot projects, and benchmarks on open datasets.

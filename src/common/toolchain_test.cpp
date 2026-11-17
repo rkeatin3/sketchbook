@@ -7,7 +7,6 @@
 
 #include <gtest/gtest.h>
 
-namespace sketchbook {
 namespace {
 
 TEST(Toolchain, EigenLinksAndComputes) {
@@ -22,4 +21,3 @@ TEST(Toolchain, Cpp23LibraryIsAvailable) {
 }
 
 }  // namespace
-}  // namespace sketchbook
