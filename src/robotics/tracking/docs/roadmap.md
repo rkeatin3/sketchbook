@@ -62,18 +62,13 @@ Each phase adds one main idea. Start in 2D with synthetic data.
 
 0. **Foundations and simulator.** Gaussian sampling, Mahalanobis distance, and
    a 2D scenario simulator with known ground truth, configurable motion and
-   measurement noise, missed detections, and clutter. The shared math goes in
-   `src/math/`, since the filters and factor graphs use the same tools.
-1. **The Bayes filter and a histogram filter.** The general predict–update
-   recursion, implemented on a grid (e.g. 1D or 2D localization with a
-   multimodal belief). Sets up the Kalman filter as the recursion's Gaussian
-   special case, and gives the estimator interface a non-Gaussian
-   implementation to design around.
-2. **Linear Kalman filter** with a constant-velocity model, validated with
-   NEES/NIS against the simulator.
+   measurement noise, missed detections, and clutter. The Gaussian tools go in
+   the probability module under `src/math/`, which the filters and factor
+   graphs share; the simulator lives here in tracking.
+1. **The Bayes filter and a histogram filter.**
+2. **Linear Kalman filter** with a constant-velocity model.
 3. **Nonlinear measurements:** EKF, UKF, and a particle filter with a polar
-   (radar-like) measurement model. The particle filter is the reference where
-   the Gaussian filters struggle.
+   (radar-like) measurement model.
 4. **Gating and GNN,** including a hand-written assignment solver (Hungarian
    or auction).
 5. **Track management.**
@@ -84,7 +79,9 @@ Each phase adds one main idea. Start in 2D with synthetic data.
    factor-graph estimator.
 9. **Real data,** and later learned detectors feeding the tracker.
 
-The filters (phases 1–3) live in the filtering module, not in tracking.
+Phases 1–3 build the filters, which live in the filtering module; their plan
+is the {ref}`filtering roadmap <module-filtering>`. The estimator interface the
+tracker swaps implementations through is defined in `src/estimation/` too.
 
 ### Lie groups
 
