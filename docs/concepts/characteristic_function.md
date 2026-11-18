@@ -13,6 +13,12 @@ Gaussians stay Gaussian under affine maps and sums.
 
 ## Derivation
 
+_To prove:_
+
+- The characteristic function of a Gaussian, scalar then multivariate.
+- The characteristic function of $Fx + b$ in terms of that of $x$.
+- A characteristic function determines its distribution (cite).
+
 ## Numerical considerations
 
 ## Examples

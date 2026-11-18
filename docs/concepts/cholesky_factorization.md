@@ -13,6 +13,12 @@ stable. Eigen provides the implementation.
 
 ## Derivation
 
+_To prove:_
+
+- Existence and uniqueness of $\Sigma = LL^\top$ for symmetric positive
+  definite $\Sigma$ (prove or cite).
+- What goes wrong when $\Sigma$ is positive semidefinite but singular.
+
 ## Numerical considerations
 
 ## Examples

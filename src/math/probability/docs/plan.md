@@ -26,6 +26,28 @@ gets an article and its own tests.
 - **The caller owns the RNG.** `Sample` takes a generator by reference,
   constrained by `std::uniform_random_bit_generator`.
 
+## API
+
+What `Gaussian<N>` offers or will offer, and the step each belongs to. Whether
+the planned operations are members or free functions is still open (see Open
+questions). Signatures are sketches.
+
+| Operation | Purpose | Step | Status |
+|---|---|---|---|
+| Constructor | Validates $\Sigma$; throws if invalid | 1 | Done |
+| `Mean()`, `Covariance()` | Accessors | — | Done |
+| `Fit(samples)` | Sample mean and covariance | 0, 5 | Done |
+| `Sample(rng)` | One draw | 3 | Done |
+| `SampleN(rng, n)` | $n$ draws, factoring $\Sigma$ once | 3 | Done |
+| `Pdf(x)` | Density | 4 | Done |
+| `std::formatter` | `std::format` and test output | — | Done |
+| `LogPdf(x)` | Log-density, stable in high dimensions | 4 | Planned |
+| `SquaredMahalanobis(x)` | Gating, NEES/NIS, ellipses | 6 | Planned |
+| `Transform(F, b)` | Affine map; returns `Gaussian<M>` for an $M \times N$ matrix $F$ | 2 | Planned |
+| `Marginal<Offset, K>()` | Marginal of $K$ consecutive components; returns `Gaussian<K>` | 7 | Planned |
+| `Condition<Offset, K>(y)` | Conditional given observed components $y$; returns `Gaussian<N - K>` | 7 | Planned |
+| `Product(other)` | Product of two densities over the same variable, renormalized (fusion) | 8 | Planned |
+
 ## Articles
 
 Articles with code sit in this module's `docs/`. Pure math goes in the wiki's
@@ -34,29 +56,58 @@ reading for that topic.
 
 | Article | Covers |
 |---|---|
+| {ref}`random-vector-moments` | Expectation of vectors and matrices, the covariance identity, and sample estimates (`Fit`); not Gaussian-specific |
 | {ref}`multivariate-gaussian` | Definition, parameterizations, the PSD invariant, rank-deficient cases, evaluating the log-pdf, how the class represents it |
+| {ref}`gaussian-mle` | Maximum-likelihood mean and covariance; why `Fit` is the best Gaussian fit |
 | {ref}`gaussian-affine-transform` | Moments and closure; sums of independent Gaussians as a special case |
 | {ref}`gaussian-sampling` | The factorization, choosing $A$, RNG design, validation |
 | {ref}`mahalanobis-distance` | Definition, its distribution, and its uses: gating, NEES/NIS, ellipses |
 | {ref}`gaussian-marginal-conditional` | The partitioned results, and the link to the Kalman update |
+| {ref}`gaussian-product` | Products of densities, the information form, and fusion |
 | {ref}`monte-carlo-propagation` | Pushing samples through $g(x)$; the polar "banana" |
 | {ref}`characteristic-function` | The tool behind most of the closure proofs (concept) |
 | {ref}`cholesky-factorization` | Existence, the algorithm, stability (concept; Eigen computes it) |
 | {ref}`chi-squared-distribution` | Needed by the Mahalanobis article (concept) |
 
+### Proofs
+
 Proofs use the `{prf:theorem}` and `{prf:proof}` directives. Prove fully the
-results the code depends on: closure under affine maps, the distribution of the
-Mahalanobis distance, and conditioning. Cite the rest.
+results the code depends on, and the properties the filters lean on. Cite the
+rest. Each article's Derivation section lists its results under "To prove".
 
-### Properties to state and prove, without code
-
-- Uncorrelated implies independent for *jointly* Gaussian variables, and the
-  counterexample when the variables are each Gaussian but not jointly Gaussian
-- Sums of independent Gaussians (how process noise enters prediction)
-- Products of Gaussian densities (the natural operation in information form,
-  and in fusion)
+| Result | Article | Depth |
+|---|---|---|
+| Linearity of expectation for vectors and matrices; the covariance identity | {ref}`random-vector-moments` | Prove |
+| Mean and covariance of $AX + b$, for any distribution | {ref}`random-vector-moments` | Prove |
+| The divisor that makes the sample covariance unbiased | {ref}`random-vector-moments` | Prove |
+| The density integrates to 1 (the normalizing constant `Pdf` uses) | {ref}`multivariate-gaussian` | Prove |
+| The parameters are the mean and covariance | {ref}`multivariate-gaussian` | Prove |
+| Uncorrelated implies independent for jointly Gaussian variables, and a counterexample otherwise | {ref}`multivariate-gaussian` | Prove |
+| Maximum-likelihood mean and covariance | {ref}`gaussian-mle` | Prove |
+| Characteristic function of a Gaussian and of an affine map | {ref}`characteristic-function` | Prove |
+| A characteristic function determines its distribution | {ref}`characteristic-function` | Cite |
+| Closure under affine maps | {ref}`gaussian-affine-transform` | Prove |
+| Sums of independent Gaussians (how process noise enters prediction) | {ref}`gaussian-affine-transform` | Prove (corollary) |
+| The distribution of $Az + b$, $z \sim \mathcal{N}(0, I)$ (what `Sample` relies on) | {ref}`gaussian-sampling` | Prove (corollary) |
+| Existence of the Cholesky factorization | {ref}`cholesky-factorization` | Cite, or prove |
+| Sum of squared standard normals | {ref}`chi-squared-distribution` | Cite |
+| Distribution of the squared Mahalanobis distance | {ref}`mahalanobis-distance` | Prove |
+| Marginals and conditionals of a joint Gaussian | {ref}`gaussian-marginal-conditional` | Prove |
+| Products of Gaussian densities | {ref}`gaussian-product` | Prove |
+| Convergence of Monte Carlo moment estimates | {ref}`monte-carlo-propagation` | Cite |
 
 ## Steps
+
+### 0. Mean and covariance
+
+- Expectation of a random vector or matrix is defined entry by entry. Why does
+  that make every scalar rule (linearity, pulling out constants) carry over,
+  and where does the order of factors start to matter?
+- Show $E[(X-\mu)(X-\mu)^\top] = E[XX^\top] - \mu\mu^\top$.
+- Estimating from samples: what should `Fit` divide by, $n$ or $n - 1$, and
+  why do texts disagree?
+- The identity suggests a one-pass algorithm. When does it lose precision, and
+  what do the two-pass and Welford methods do instead?
 
 ### 1. Representation
 
@@ -86,21 +137,44 @@ Mahalanobis distance, and conditioning. Cite the rest.
 - How do you compute the log-determinant and the quadratic form without
   forming $\Sigma^{-1}$?
 
-### 5. Mahalanobis distance
+### 5. Fitting by maximum likelihood
+
+- What is the likelihood of $n$ independent samples, and why maximize its log
+  instead?
+- Setting the derivatives to zero needs derivatives with respect to a vector
+  and a matrix. $\Sigma$ is symmetric positive definite, so does the
+  unconstrained optimum respect that, or does it need enforcing?
+- Is the stationary point actually a maximum?
+- Which divisor does the maximum-likelihood $\Sigma$ use, and how does that
+  square with the answer from step 0? Which one should `Fit` use?
+
+### 6. Mahalanobis distance
 
 - What distribution does the squared Mahalanobis distance of a sample follow,
   and why?
 - How does that one result support gating, NEES/NIS, and covariance ellipses?
 
-### 6. Marginalizing and conditioning
+### 7. Marginalizing and conditioning
 
 - Given a joint Gaussian over $(x, y)$, what are the marginal of $x$ and the
   conditional $p(x \mid y)$?
 - Write the state and the measurement as one joint Gaussian. How does
   conditioning on the measurement relate to the Kalman update?
-- With fixed dimensions, how does the API name the partition?
+- With fixed dimensions, how does the API name the partition? Is "a block of
+  consecutive components" enough, or do callers need arbitrary index sets
+  (and then, can those still be compile-time)?
 
-### 7. Rank-deficient covariances
+### 8. Products of Gaussian densities
+
+- Why is the product of two Gaussian densities in $x$ proportional to a
+  Gaussian, and what are its parameters?
+- Why is the result simpler to state in information form?
+- The normalizing constant you dropped: what is it, and where does it matter
+  (hint: data association)?
+- How does fusing two independent estimates of the same state relate to the
+  Kalman update?
+
+### 9. Rank-deficient covariances
 
 - Which of the operations above still make sense when $\Sigma$ is positive
   semidefinite but singular?
@@ -108,7 +182,7 @@ Mahalanobis distance, and conditioning. Cite the rest.
 - Tie this to the roadmap question about the rank of the discretized
   white-noise-acceleration process noise.
 
-### 8. Monte Carlo propagation through nonlinear functions
+### 10. Monte Carlo propagation through nonlinear functions
 
 - Push samples through $g(x)$ and fit a Gaussian to the result. How many
   samples does it take for the fit to settle?
@@ -122,7 +196,7 @@ Mahalanobis distance, and conditioning. Cite the rest.
   should you expect, and how do you turn that into a test tolerance that
   doesn't flake?
 - Squared Mahalanobis distances of samples follow the distribution from step
-  5: NEES in miniature.
+  6: NEES in miniature.
 - Affine transforms checked against transformed samples.
 - Fixed seeds throughout.
 
@@ -153,7 +227,8 @@ sections, with a pointer to the relevant part.
 - Trefethen & Bau, *Numerical Linear Algebra*, Lecture 23: Cholesky
   factorization, why it exists for symmetric positive definite matrices, and
   why it's stable.
-- Blitzstein & Hwang, *Introduction to Probability*, 2nd ed. (free PDF):
+- Blitzstein & Hwang, *Introduction to Probability*, 2nd ed. (free to read
+  online, not downloadable):
   moment-generating functions and the multivariate normal (§7.5). The gentlest
   route to proving closure under affine maps.
 - Devroye, *Non-Uniform Random Variate Generation* (free): only if you write
@@ -173,7 +248,14 @@ companion for the Mahalanobis, chi-squared, and conditioning articles.
 - Gaussian mixtures (IMM, GM-PHD)
 - Linearization and the unscented transform (phase 3)
 - Entropy and KL divergence (for mixture reduction, later)
+- Principal component analysis (the eigendecomposition of $\Sigma$; ties into
+  covariance ellipses)
 
 ## Open questions
 
 - Member vs. free functions, especially for transforms and conditioning.
+- Does the constructor's check match the decision? `Eigen::LLT` succeeds only
+  for positive *definite* matrices, so it rejects singular PSD covariances
+  (step 9), and it reads only the lower triangle, so it never checks symmetry.
+- How should validation failures be reported: an exception (current), an
+  assert, or a factory returning `std::expected`?

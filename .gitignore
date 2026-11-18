@@ -44,3 +44,6 @@ docs/_build/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/README.md
+
+# Local copies of reference PDFs; personal-use downloads, never committed.
+/library/

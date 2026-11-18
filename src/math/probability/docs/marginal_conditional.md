@@ -13,6 +13,13 @@ conditional $p(x \mid y)$, and how conditioning relates to the Kalman update.
 
 ## Derivation
 
+_To prove:_
+
+- The marginal of a joint Gaussian is Gaussian, and its parameters.
+- The conditional $p(x \mid y)$ is Gaussian, and its parameters.
+- The Kalman update as conditioning a joint Gaussian over state and
+  measurement.
+
 ## Numerical considerations
 
 ## Implementation
@@ -20,6 +27,9 @@ conditional $p(x \mid y)$, and how conditioning relates to the Kalman update.
 ## Examples
 
 ## See also
+
+- {ref}`gaussian-product`: the same update, written as a product of prior
+  and likelihood densities
 
 - {doc}`Filtering </src/estimation/filtering/README>`: the update step is
   conditioning on a measurement

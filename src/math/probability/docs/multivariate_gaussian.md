@@ -9,10 +9,22 @@ accurately, and how the `Gaussian` class represents it.
 
 ## Prerequisites
 
+- {ref}`random-vector-moments`
 - Linear algebra: symmetric and positive (semi)definite matrices
 - {ref}`cholesky-factorization`, for evaluating the density
 
 ## Derivation
+
+_To prove:_
+
+- The density integrates to 1: where the normalizing constant comes from.
+- The parameters are the moments: the mean and covariance of
+  $x \sim \mathcal{N}(\mu, \Sigma)$ are $\mu$ and $\Sigma$.
+- Uncorrelated implies independent for *jointly* Gaussian variables. Then a
+  counterexample: two variables that are each Gaussian and uncorrelated, but
+  dependent.
+- Why $\Sigma$ must be symmetric positive semidefinite, and what happens to the
+  density when it's singular.
 
 ## Numerical considerations
 
@@ -24,6 +36,8 @@ accurately, and how the `Gaussian` class represents it.
 
 - {ref}`gaussian-affine-transform`: the operation everything else builds on
 - {ref}`gaussian-sampling`: drawing samples
+- {ref}`gaussian-mle`: fitting the parameters to samples
+- {ref}`gaussian-product`: multiplying densities, and the information form
 - {ref}`mahalanobis-distance`: the quadratic form in the density's exponent
 - {ref}`gaussian-marginal-conditional`: splitting a joint Gaussian
 

@@ -14,6 +14,11 @@ linearization and the unscented transform are tested against.
 
 ## Derivation
 
+_To prove:_
+
+- Why the fitted mean and covariance converge to the true moments of $g(x)$ as
+  the sample count grows (cite the law of large numbers).
+
 ## Numerical considerations
 
 ## Implementation

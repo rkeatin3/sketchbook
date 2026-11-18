@@ -27,11 +27,14 @@ them.
 :maxdepth: 1
 
 docs/plan
+docs/random_vector_moments
 docs/multivariate_gaussian
+docs/gaussian_mle
 docs/affine_transform
 docs/sampling
 docs/mahalanobis_distance
 docs/marginal_conditional
+docs/gaussian_product
 docs/monte_carlo_propagation
 ```
 

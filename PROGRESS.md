@@ -16,7 +16,7 @@ What is done and what is next. Updated as work lands.
 
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| probability | plan; 6 + 3 concept articles scaffolded | `Gaussian` skeleton | placeholder | — |
+| probability | plan; 9 + 3 concept articles scaffolded | `Gaussian`: sample, fit, pdf, validation, formatting | unit + round trip | — |
 | lie_groups  | — | — | — | — |
 
 ## Estimation

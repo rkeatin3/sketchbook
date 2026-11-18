@@ -14,6 +14,13 @@ covariance ellipses.
 
 ## Derivation
 
+_To prove:_
+
+- The distribution of the squared Mahalanobis distance of a sample from its own
+  Gaussian, including its parameter.
+- The shape of its level sets, and how they relate to the eigendecomposition of
+  $\Sigma$.
+
 ## Numerical considerations
 
 ## Implementation

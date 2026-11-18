@@ -14,6 +14,13 @@ replayed.
 
 ## Derivation
 
+_To prove:_
+
+- Corollary of {ref}`gaussian-affine-transform`: the distribution of $Az + b$
+  for $z \sim \mathcal{N}(0, I)$.
+- Which matrices $A$ produce a given $\Sigma$, and why the Cholesky factor is
+  one of them.
+
 ## Numerical considerations
 
 ## Implementation

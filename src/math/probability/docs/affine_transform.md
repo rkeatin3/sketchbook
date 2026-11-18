@@ -8,10 +8,20 @@ the result, and why the result is still Gaussian.
 
 ## Prerequisites
 
+- {ref}`random-vector-moments`
 - {ref}`multivariate-gaussian`
 - {ref}`characteristic-function`
 
 ## Derivation
+
+_To prove:_
+
+- The mean and covariance of $Fx + b$ (from {ref}`random-vector-moments`;
+  cite).
+- Closure: $Fx + b$ is Gaussian, for any $F$, square or not. Uses
+  {ref}`characteristic-function`.
+- Corollary: the sum of independent Gaussian random variables is Gaussian, and
+  its parameters.
 
 ## Numerical considerations
 
@@ -26,6 +36,8 @@ the result, and why the result is still Gaussian.
 - {ref}`gaussian-marginal-conditional`: marginalizing is an affine transform
   that selects components
 - {ref}`monte-carlo-propagation`: the nonlinear case, where closure fails
+- {ref}`gaussian-product`: *products* of densities, as opposed to sums of
+  random variables, whose density is a convolution
 
 ## References
 
