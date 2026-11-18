@@ -27,7 +27,7 @@ With learning as the main goal, the priorities are:
 
 ## Contents
 
-- `src/math/`: Lie groups
+- `src/math/`: probability and Lie groups
 - `src/estimation/`: Bayesian filtering (histogram, Kalman-family, particle)
   and factor graphs
 - `src/robotics/`: multi-object tracking

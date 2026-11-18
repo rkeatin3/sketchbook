@@ -15,7 +15,7 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Prerequisites
 
-- Probability: multivariate Gaussians
+- {doc}`Probability </src/math/probability/README>`
 - {doc}`Lie Groups </src/math/lie_groups/README>` (for 3D states)
 
 ## Roadmap
