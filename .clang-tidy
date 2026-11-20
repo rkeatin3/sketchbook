@@ -2,6 +2,12 @@
 # Checks are deliberately strict. This repo is a study environment; the linter
 # is a tutor, not a gate. Disable individual checks with a comment explaining
 # why rather than silently loosening this file.
+#
+# Comments can't go inside the folded list below, so the reasons are here:
+# - bugprone-throwing-static-initialization, cppcoreguidelines-owning-memory:
+#   fire on every googletest TEST macro expansion, not on code in this repo.
+# - bugprone-random-generator-seed: constant seeds are deliberate; every
+#   random run must be replayable.
 Checks: >
   -*,
   bugprone-*,
@@ -15,7 +21,10 @@ Checks: >
   -readability-identifier-length,
   -modernize-use-trailing-return-type,
   -misc-non-private-member-variables-in-classes,
-  -cppcoreguidelines-non-private-member-variables-in-classes
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -bugprone-throwing-static-initialization,
+  -cppcoreguidelines-owning-memory,
+  -bugprone-random-generator-seed
 
 WarningsAsErrors: ''
 HeaderFilterRegex: '^src/|^papers/'
