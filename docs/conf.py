@@ -78,3 +78,7 @@ html_theme_options = {
 
 # Hover previews for internal references and citations.
 tippy_enable_mathjax = True
+# Wikipedia and DOI previews are fetched over the network at build time, so a
+# slow or unreachable API would fail the strict (-W) build.
+tippy_enable_wikitips = False
+tippy_enable_doitips = False

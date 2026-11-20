@@ -39,6 +39,8 @@
   "[bazel]": {
     "editor.formatOnSave": true
   },
+  // "Build" / "Test" links above each target in BUILD.bazel files.
+  "bazel.enableCodeLens": true,
 
   // The bazel-* symlinks fan out into the external build cache; excluding
   // them keeps file watching, search, and clangd's own indexing from
