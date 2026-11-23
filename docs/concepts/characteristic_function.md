@@ -23,6 +23,8 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
 ## See also
 
 - {ref}`gaussian-affine-transform`: the main result proved with it

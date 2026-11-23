@@ -25,6 +25,8 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
 ## See also
 
 - {doc}`Filtering </src/estimation/filtering/README>`: the EKF and UKF

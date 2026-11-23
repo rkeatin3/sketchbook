@@ -1,9 +1,10 @@
 (module-probability)=
 # Probability
 
-Probability tools shared across the estimation modules, starting with the
-multivariate Gaussian: sampling, densities, Mahalanobis distance, and
-transforms.
+Probability tools shared across the estimation modules: discrete
+distributions and Bayes' rule, moments and their estimates, and the
+multivariate Gaussian (sampling, densities, Mahalanobis distance, and
+transforms).
 
 **Status:** not started ·
 [source](https://github.com/rkeatin3/sketchbook/tree/main/src/math/probability)
@@ -27,7 +28,12 @@ them.
 :maxdepth: 1
 
 docs/plan
+docs/discrete_distribution
+docs/bayes_rule
 docs/random_vector_moments
+docs/correlation
+docs/streaming_moments
+docs/covariance_validation
 docs/multivariate_gaussian
 docs/gaussian_mle
 docs/affine_transform

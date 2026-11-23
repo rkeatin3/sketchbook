@@ -32,6 +32,11 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [lecture note 1][note1], Problem 2: uncorrelated jointly Gaussian
+   vectors are independent.
+
 ## See also
 
 - {ref}`gaussian-affine-transform`: the operation everything else builds on
@@ -40,6 +45,9 @@ _To prove:_
 - {ref}`gaussian-product`: multiplying densities, and the information form
 - {ref}`mahalanobis-distance`: the quadratic form in the density's exponent
 - {ref}`gaussian-marginal-conditional`: splitting a joint Gaussian
+- {ref}`covariance-validation`: which $\Sigma$ are allowed, and how the
+  constructor checks
+- {ref}`correlation`: uncorrelated vs. independent outside the Gaussian case
 
 ## References
 
@@ -51,3 +59,5 @@ _To prove:_
 - {cite:t}`barshalom2001`, Ch. 1: the probability review behind the tracking
   chapters.
 - {cite:t}`petersen2012`, §8: identities, for checking results.
+
+[note1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/lecture-notes/01_Probability.pdf

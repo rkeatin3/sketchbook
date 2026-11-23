@@ -31,6 +31,11 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [lecture note 1][note1], Problem 3: derive the information form of
+   the density and find its normalizing constant.
+
 ## See also
 
 - {ref}`gaussian-affine-transform`: the *sum* of independent Gaussian random
@@ -50,3 +55,5 @@ _To prove:_
 - {cite:t}`barfoot2024`, Ch. 2: products of Gaussians and the information
   form, in estimation notation.
 - {cite:t}`petersen2012`, §8: Gaussian identities, for checking results.
+
+[note1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/lecture-notes/01_Probability.pdf

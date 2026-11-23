@@ -20,6 +20,8 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
 ## See also
 
 - {ref}`mahalanobis-distance`: the squared distance of a Gaussian sample

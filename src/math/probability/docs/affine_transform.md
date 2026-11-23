@@ -29,6 +29,14 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [Homework 1][hw1], §1.D(b): an affine map of a Gaussian random
+   vector is Gaussian.
+2. ROB 530 [Homework 1][hw1], §6: a linear calibration of a Gaussian range
+   measurement. Is the result exact or an approximation?
+3. _Coding:_ check `Transform` against samples pushed through the same map.
+
 ## See also
 
 - {ref}`gaussian-sampling`: sampling is an affine transform of a standard
@@ -48,3 +56,5 @@ _To prove:_
   function. The most direct route to the "still Gaussian" half.
 - {cite:t}`barfoot2024`, Ch. 2: linear transforms of Gaussians in estimation
   notation.
+
+[hw1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/homework/homework-01/NA568_HW1_W22.pdf

@@ -29,6 +29,12 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [Homework 1][hw1], §1.A: linearity of expectation for three
+   continuous random variables, from the definition in terms of the joint
+   density, without assuming independence.
+
 ## See also
 
 - {ref}`multivariate-gaussian`: a distribution fully described by these two
@@ -38,6 +44,9 @@ _To prove:_
 - {ref}`gaussian-mle`: the same estimates derived as the best Gaussian fit,
   and a different answer to the $n$ vs. $n - 1$ question
 - {ref}`gaussian-sampling`: sample statistics are how a sampler is validated
+- {ref}`streaming-moments`: the same estimates one sample at a time, and
+  merged across data sets
+- {ref}`correlation`: the covariance normalized to a scale-free measure
 
 ## References
 
@@ -52,3 +61,5 @@ _To prove:_
   the naive one-pass formula and why it fails, the two-pass algorithm, and
   Welford's method, including the covariance versions. The free route to the
   two papers above, which are paywalled.
+
+[hw1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/homework/homework-01/NA568_HW1_W22.pdf

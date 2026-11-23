@@ -23,6 +23,11 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
+   factor. Compute the ones that do by hand.
+
 ## See also
 
 - {ref}`gaussian-sampling`: a factor of $\Sigma$ turns standard normal draws
@@ -30,6 +35,8 @@ _To prove:_
 - {ref}`multivariate-gaussian`: the log-determinant and quadratic form via
   the factor
 - {ref}`mahalanobis-distance`: a triangular solve instead of an inverse
+- {ref}`covariance-validation`: the factorization as a test that a matrix is
+  a valid covariance
 
 ## References
 
@@ -39,3 +46,5 @@ _To prove:_
 - Eigen, [Linear algebra and decompositions](https://eigen.tuxfamily.org/dox/group__TutorialLinearAlgebra.html):
   `LLT` and `LDLT`, and which one to use when $\Sigma$ may be only
   semidefinite.
+
+[hw1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/homework/homework-01/NA568_HW1_W22.pdf

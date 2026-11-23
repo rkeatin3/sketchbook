@@ -27,6 +27,8 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
 ## See also
 
 - {ref}`mahalanobis-distance`: the distribution of sample distances is a test

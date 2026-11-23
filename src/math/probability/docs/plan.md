@@ -1,15 +1,19 @@
 (probability-plan)=
-# Gaussian plan
+# Probability plan
 
-The plan for the Gaussian work in tracking phase 0 (see {ref}`tracking-roadmap`).
-It lists topics, decisions made so far, and questions to work through. The
+The plan for the probability module: the foundations that ROB 530 starts with,
+then the Gaussian work in tracking phase 0 (see {ref}`tracking-roadmap`). It
+lists topics, decisions made so far, and questions to work through. The
 derivations and the code are left to be worked out.
 
 ## Goal
 
 A fixed-dimension multivariate Gaussian type that the simulator, the Kalman
-filters, gating, and the evaluation metrics can all share. Each topic below
-gets an article and its own tests.
+filters, gating, and the evaluation metrics can all share, built on a small
+set of foundations: discrete distributions for the histogram filter, and
+streaming moment estimates. Each topic below gets an article and its own
+tests. Where a topic can be checked in code, it is, so that little ends up as
+pure concept pages.
 
 ## Decisions so far
 
@@ -56,7 +60,12 @@ reading for that topic.
 
 | Article | Covers |
 |---|---|
+| {ref}`discrete-distribution` | Axioms, joint, marginal, and conditional tables, independence; the belief type of the histogram filter |
+| {ref}`bayes-rule` | Total probability, Bayes' rule, the evidence as a normalizer, sequential updates |
 | {ref}`random-vector-moments` | Expectation of vectors and matrices, the covariance identity, and sample estimates (`Fit`); not Gaussian-specific |
+| {ref}`correlation` | The correlation coefficient and matrix; uncorrelated vs. independent |
+| {ref}`streaming-moments` | Welford's update and merging summaries of separate data sets |
+| {ref}`covariance-validation` | Which matrices are covariances, and how `Gaussian<N>` checks |
 | {ref}`multivariate-gaussian` | Definition, parameterizations, the PSD invariant, rank-deficient cases, evaluating the log-pdf, how the class represents it |
 | {ref}`gaussian-mle` | Maximum-likelihood mean and covariance; why `Fit` is the best Gaussian fit |
 | {ref}`gaussian-affine-transform` | Moments and closure; sums of independent Gaussians as a special case |
@@ -77,7 +86,13 @@ rest. Each article's Derivation section lists its results under "To prove".
 
 | Result | Article | Depth |
 |---|---|---|
+| Consequences of the axioms; complements of independent events | {ref}`discrete-distribution` | Prove |
+| Independence as a rank-one joint table | {ref}`discrete-distribution` | Prove |
+| Total probability, Bayes' rule, sequential updates | {ref}`bayes-rule` | Prove |
 | Linearity of expectation for vectors and matrices; the covariance identity | {ref}`random-vector-moments` | Prove |
+| Cauchy–Schwarz and $\lvert\rho\rvert \le 1$; independent implies uncorrelated, not conversely | {ref}`correlation` | Prove |
+| Welford's update and merging summaries | {ref}`streaming-moments` | Prove |
+| Covariances are exactly the symmetric positive semidefinite matrices; equivalent tests | {ref}`covariance-validation` | Prove |
 | Mean and covariance of $AX + b$, for any distribution | {ref}`random-vector-moments` | Prove |
 | The divisor that makes the sample covariance unbiased | {ref}`random-vector-moments` | Prove |
 | The density integrates to 1 (the normalizing constant `Pdf` uses) | {ref}`multivariate-gaussian` | Prove |
@@ -96,6 +111,42 @@ rest. Each article's Derivation section lists its results under "To prove".
 | Products of Gaussian densities | {ref}`gaussian-product` | Prove |
 | Convergence of Monte Carlo moment estimates | {ref}`monte-carlo-propagation` | Cite |
 
+## Course alignment
+
+ROB 530 ({cite:t}`ghaffari2022`) homework 1 and lecture note 1 cover the
+foundations and parts of the Gaussian steps. Each problem is listed in an
+article's Exercises, linked rather than copied.
+
+| ROB 530 | Article |
+|---|---|
+| HW 1 §1.A: linearity of expectation | {ref}`random-vector-moments` |
+| HW 1 §1.B: valid covariances | {ref}`covariance-validation` |
+| HW 1 §1.C: combining sample statistics | {ref}`streaming-moments` |
+| HW 1 §1.D(a): complements of independent events | {ref}`discrete-distribution` |
+| HW 1 §1.D(b), §6: affine maps of Gaussians | {ref}`gaussian-affine-transform` |
+| HW 1 §2.A, §3: Bayes' rule | {ref}`bayes-rule` |
+| HW 1 §2.B, §2.C: the Bayes filter, circular world (code) | {ref}`bayes-filter` |
+| HW 1 §4: conditional vs. marginal variance | {ref}`gaussian-marginal-conditional` |
+| HW 1 §5: Cholesky by hand | {ref}`covariance-validation`, {ref}`cholesky-factorization` |
+| Note 1, Problem 1: uncorrelated but dependent | {ref}`correlation` |
+| Note 1, Problem 2: uncorrelated Gaussians are independent | {ref}`multivariate-gaussian` |
+| Note 1, Problem 3: the information form | {ref}`gaussian-product` |
+| Note 1, Example 2 and §5: marginals, conditionals, confidence ellipses (code) | {ref}`gaussian-marginal-conditional`, {ref}`mahalanobis-distance` |
+
+## Foundations
+
+Worked before the Gaussian steps, in this order. Each article's Derivation
+lists its results under "To prove".
+
+1. {ref}`discrete-distribution` and {ref}`bayes-rule`, with a small
+   distribution type that the {ref}`bayes-filter` then uses for the circular
+   world.
+2. {ref}`correlation`, alongside step 0.
+3. {ref}`streaming-moments`, after step 0: an accumulator checked against
+   `Fit`.
+4. {ref}`covariance-validation`, which settles step 1 and the open questions
+   about validation.
+
 ## Steps
 
 ### 0. Mean and covariance
@@ -110,6 +161,8 @@ rest. Each article's Derivation section lists its results under "To prove".
   what do the two-pass and Welford methods do instead?
 
 ### 1. Representation
+
+Worked in {ref}`covariance-validation`.
 
 - What do "symmetric" and "positive semidefinite" mean numerically? Which
   tolerances apply, and how do you check each property?
@@ -236,6 +289,11 @@ sections, with a pointer to the relevant part.
 - Petersen & Pedersen, *The Matrix Cookbook*, §8 (free): Gaussian identities,
   for checking rather than learning.
 
+- Thrun, Burgard, Fox, *Probabilistic Robotics*, Ch. 2 (owned or library):
+  Bayes' rule and the Bayes filter, the ROB 530 textbook.
+- ROB 530 lecture note 1 (free): a compact review of the foundations and the
+  Gaussian results, with the homework that the articles' Exercises cite.
+
 For sampling: start with Murphy §3.2 or Barfoot §2.2 for the claims, then
 Trefethen & Bau for the factorization. Bar-Shalom Ch. 1 is the natural
 companion for the Mahalanobis, chi-squared, and conditioning articles.
@@ -254,6 +312,8 @@ companion for the Mahalanobis, chi-squared, and conditioning articles.
 ## Open questions
 
 - Member vs. free functions, especially for transforms and conditioning.
+- The two validation questions below are worked in
+  {ref}`covariance-validation`.
 - Does the constructor's check match the decision? `Eigen::LLT` succeeds only
   for positive *definite* matrices, so it rejects singular PSD covariances
   (step 9), and it reads only the lower triangle, so it never checks symmetry.

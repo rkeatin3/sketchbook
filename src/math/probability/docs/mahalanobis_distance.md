@@ -27,6 +27,12 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. _Coding:_ the 95% confidence ellipse of ROB 530
+   [lecture note 1][note1], §5 and Figure 2: draw samples, and check that about
+   95% fall inside the ellipse.
+
 ## See also
 
 - {ref}`multivariate-gaussian`: the same quadratic form appears in the density
@@ -40,3 +46,5 @@ _To prove:_
   distance. The later chapters use it for filter consistency (NEES, NIS) and
   validation gates.
 - {cite:t}`barfoot2024`, Ch. 2: the same result in estimation notation.
+
+[note1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/lecture-notes/01_Probability.pdf

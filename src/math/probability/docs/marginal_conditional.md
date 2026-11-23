@@ -26,6 +26,14 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
+1. ROB 530 [Homework 1][hw1], §4: how the conditional variance compares with
+   the marginal one, and what it depends on.
+2. _Coding:_ reproduce the marginals and the conditional
+   $p(x_1 \mid x_2 = 0.9)$ in ROB 530 [lecture note 1][note1], Example 2,
+   with `Marginal` and `Condition`.
+
 ## See also
 
 - {ref}`gaussian-product`: the same update, written as a product of prior
@@ -46,3 +54,6 @@ _To prove:_
 - {cite:t}`barshalom2001`, Ch. 1: conditioning of jointly Gaussian vectors,
   which is the basis of its Kalman filter derivation.
 - {cite:t}`sarkka2023`: Gaussian conditioning as used in Bayesian filtering.
+
+[hw1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/homework/homework-01/NA568_HW1_W22.pdf
+[note1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/lecture-notes/01_Probability.pdf

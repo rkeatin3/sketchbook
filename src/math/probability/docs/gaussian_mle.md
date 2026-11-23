@@ -32,6 +32,8 @@ _To prove:_
 
 ## Examples
 
+## Exercises
+
 ## See also
 
 - {ref}`random-vector-moments`: the same estimates without assuming a
