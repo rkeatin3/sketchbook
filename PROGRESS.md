@@ -9,7 +9,6 @@ What is done and what is next. Updated as work lands.
       clang-tidy, coverage, Python lint/type/test, strict wiki build
 - [x] Pre-commit hooks, VS Code + clangd setup
 - [x] Wiki: Sphinx + MyST, deployed to GitHub Pages from `main`
-- [x] `//src/common:toolchain_test` smoke test; delete once real tests land
 - [x] GitHub repo, Pages deploy, and branch protection on `main`
 - [ ] Codecov project linked (`CODECOV_TOKEN` secret)
 
@@ -17,7 +16,7 @@ What is done and what is next. Updated as work lands.
 
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| probability | plan; 14 + 3 concept articles scaffolded | — | — | — |
+| probability | plan; 14 + 3 concept articles scaffolded | `Gaussian`: sample, fit, pdf, validation, formatting | unit + round trip | — |
 | lie_groups  | — | — | — | — |
 
 ## Estimation

@@ -37,18 +37,17 @@ pure concept pages.
 
 What `Gaussian<N>` offers or will offer, and the step each belongs to. Whether
 the planned operations are members or free functions is still open (see Open
-questions). Signatures are sketches. "Written" means implemented on the
-`gaussian-core` branch and not yet merged.
+questions). Signatures are sketches.
 
 | Operation | Purpose | Step | Status |
 |---|---|---|---|
-| Constructor | Validates $\Sigma$; throws if invalid | 1 | Written |
-| `Mean()`, `Covariance()` | Accessors | — | Written |
-| `Fit(samples)` | Sample mean and covariance | 0, 5 | Written |
-| `Sample(rng)` | One draw | 3 | Written |
-| `SampleN(rng, n)` | $n$ draws, factoring $\Sigma$ once | 3 | Written |
-| `Pdf(x)` | Density | 4 | Written |
-| `std::formatter` | `std::format` and test output | — | Written |
+| Constructor | Validates $\Sigma$; throws if invalid | 1 | Done |
+| `Mean()`, `Covariance()` | Accessors | — | Done |
+| `Fit(samples)` | Sample mean and covariance | 0, 5 | Done |
+| `Sample(rng)` | One draw | 3 | Done |
+| `SampleN(rng, n)` | $n$ draws, factoring $\Sigma$ once | 3 | Done |
+| `Pdf(x)` | Density | 4 | Done |
+| `std::formatter` | `std::format` and test output | — | Done |
 | `LogPdf(x)` | Log-density, stable in high dimensions | 4 | Planned |
 | `SquaredMahalanobis(x)` | Gating, NEES/NIS, ellipses | 6 | Planned |
 | `Transform(F, b)` | Affine map; returns `Gaussian<M>` for an $M \times N$ matrix $F$ | 2 | Planned |
@@ -150,12 +149,12 @@ the suggested order; the Steps below hold the questions for each.
 |---|---|---|---|---|---|
 | 1 | Distributions and Bayes' rule | {ref}`discrete-distribution`, {ref}`bayes-rule` | A distribution type: marginalize, condition, Bayes update | HW 1 §1.D(a), §2.A, §3 | — |
 | 2 | The Bayes filter | {ref}`bayes-filter` | Histogram filter in `filtering`; the circular world in `examples/` | HW 1 §2.B, §2.C | — |
-| 3 | Moments and correlation | {ref}`random-vector-moments`, {ref}`correlation` | `Fit` (written); a correlation matrix; the $X$, $X^2$ test | HW 1 §1.A; note 1, Problem 1 | 0 |
+| 3 | Moments and correlation | {ref}`random-vector-moments`, {ref}`correlation` | `Fit` (done); a correlation matrix; the $X$, $X^2$ test | HW 1 §1.A; note 1, Problem 1 | 0 |
 | 4 | Streaming moments | {ref}`streaming-moments` | An accumulator with merge, checked against `Fit` | HW 1 §1.C | 0 |
 | 5 | Valid covariances | {ref}`covariance-validation`, {ref}`cholesky-factorization` | The validation function the constructor calls | HW 1 §1.B, §5 | 1, 9 |
-| 6 | Density and sampling | {ref}`multivariate-gaussian`, {ref}`gaussian-sampling` | `Pdf`, `Sample`, `SampleN` (written); `LogPdf`; the round-trip tolerance | Note 1, Problem 2 | 3, 4 |
+| 6 | Density and sampling | {ref}`multivariate-gaussian`, {ref}`gaussian-sampling` | `Pdf`, `Sample`, `SampleN` (done); `LogPdf`; the round-trip tolerance | Note 1, Problem 2 | 3, 4 |
 | 7 | Affine transforms | {ref}`gaussian-affine-transform`, {ref}`characteristic-function` | `Transform` | HW 1 §1.D(b), §6 | 2 |
-| 8 | Maximum likelihood | {ref}`gaussian-mle` | `Fit` (written) | — | 5 |
+| 8 | Maximum likelihood | {ref}`gaussian-mle` | `Fit` (done) | — | 5 |
 | 9 | Mahalanobis distance | {ref}`mahalanobis-distance`, {ref}`chi-squared-distribution` | `SquaredMahalanobis`; a confidence-ellipse example | Note 1, §5 | 6 |
 | 10 | Marginals and conditionals | {ref}`gaussian-marginal-conditional` | `Marginal`, `Condition` | HW 1 §4; note 1, Example 2 | 7 |
 | 11 | Products of Gaussians | {ref}`gaussian-product` | `Product` | Note 1, Problem 3 | 8 |
