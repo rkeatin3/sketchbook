@@ -46,16 +46,18 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} Note 1, Problem 1
 :label: correlation-ex-note1-p1
+:nonumber:
 
 ROB 530 [lecture note 1][note1], Problem 1: the $X$, $X^2$ pair.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: correlation-ex-coding
+:nonumber:
 
-_Coding:_ sample the pair and show, with a fixed seed, that the sample
+Sample the pair and show, with a fixed seed, that the sample
 correlation is near zero while the samples are clearly dependent.
 :::
 

@@ -34,8 +34,9 @@ _To prove:_
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §1.A
 :label: random-vector-moments-ex-hw1-1a
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §1.A: linearity of expectation for three
 continuous random variables, from the definition in terms of the joint

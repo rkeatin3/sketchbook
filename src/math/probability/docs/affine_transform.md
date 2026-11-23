@@ -40,24 +40,27 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §1.D(b)
 :label: gaussian-affine-transform-ex-hw1-1db
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §1.D(b): an affine map of a Gaussian random
 vector is Gaussian.
 :::
 
-:::{exercise}
+:::{exercise} HW 1 §6
 :label: gaussian-affine-transform-ex-hw1-6
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §6: a linear calibration of a Gaussian range
 measurement. Is the result exact or an approximation?
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: gaussian-affine-transform-ex-coding
+:nonumber:
 
-_Coding:_ check `Transform` against samples pushed through the same map.
+Check `Transform` against samples pushed through the same map.
 :::
 
 ## See also

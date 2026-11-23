@@ -44,25 +44,28 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §1.C
 :label: streaming-moments-ex-hw1-1c
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §1.C: two data sets known only by count, mean,
 and biased covariance. Recover each $\sum x x^\top$, then the combined mean
 and covariance.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: streaming-moments-ex-coding
+:nonumber:
 
-_Coding:_ the same numbers through the merge, checked against the hand
+The same numbers through the merge, checked against the hand
 answer.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: streaming-moments-ex-coding-2
+:nonumber:
 
-_Coding:_ feed values with a large offset (e.g. $10^8 + \epsilon$) into
+Feed values with a large offset (e.g. $10^8 + \epsilon$) into
 the naive one-pass formula and into Welford's update, and compare both with
 the two-pass result.
 :::

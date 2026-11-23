@@ -25,8 +25,9 @@ _To prove:_
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §5
 :label: cholesky-factorization-ex-hw1-5
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
 factor. Compute the ones that do by hand.

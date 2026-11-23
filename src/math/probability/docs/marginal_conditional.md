@@ -37,17 +37,19 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §4
 :label: gaussian-marginal-conditional-ex-hw1-4
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §4: how the conditional variance compares with
 the marginal one, and what it depends on.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: gaussian-marginal-conditional-ex-coding
+:nonumber:
 
-_Coding:_ reproduce the marginals and the conditional
+Reproduce the marginals and the conditional
 $p(x_1 \mid x_2 = 0.9)$ in ROB 530 [lecture note 1][note1], Example 2,
 with `Marginal` and `Condition`.
 :::

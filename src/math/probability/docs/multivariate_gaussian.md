@@ -46,8 +46,9 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} Note 1, Problem 2
 :label: multivariate-gaussian-ex-note1-p2
+:nonumber:
 
 ROB 530 [lecture note 1][note1], Problem 2: uncorrelated jointly Gaussian
 vectors are independent.

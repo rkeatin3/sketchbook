@@ -38,10 +38,11 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} Coding
 :label: mahalanobis-distance-ex-coding
+:nonumber:
 
-_Coding:_ the 95% confidence ellipse of ROB 530
+The 95% confidence ellipse of ROB 530
 [lecture note 1][note1], §5 and Figure 2: draw samples, and check that about
 95% fall inside the ellipse.
 :::

@@ -49,22 +49,25 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §1.D(a)
 :label: discrete-distribution-ex-hw1-1da
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §1.D(a): complements of independent events.
 :::
 
-:::{exercise}
+:::{exercise} Blitzstein, Ch. 2
 :label: discrete-distribution-ex-blitzstein-ch2
+:nonumber:
 
 {cite:t}`blitzstein2019`, Ch. 2: conditional probability exercises.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: discrete-distribution-ex-coding
+:nonumber:
 
-_Coding:_ build a joint table for two dependent variables, then check in a
+Build a joint table for two dependent variables, then check in a
 test that the marginals and conditionals come out as computed by hand, and
 that the table isn't the outer product of its marginals.
 :::

@@ -45,32 +45,37 @@ ROB 530 [lecture note 1][note1], Example 1: a diagnostic test, worked in full.
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §2.A
 :label: bayes-rule-ex-hw1-2a
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §2.A: a diagnostic test, then which error rate
 is worth reducing.
 :::
 
-:::{exercise}
+:::{exercise} HW 1 §3
 :label: bayes-rule-ex-hw1-3
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §3: a three-outcome prior updated by one
 observation.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: bayes-rule-ex-coding
+:nonumber:
 
-_Coding:_ redo {ref}`bayes-rule-ex-hw1-2a` and {ref}`bayes-rule-ex-hw1-3`
+Redo {ref}`HW 1 §2.A <bayes-rule-ex-hw1-2a>` and
+{ref}`HW 1 §3 <bayes-rule-ex-hw1-3>`
 with the update from the Implementation section, and check the results
 against the hand calculations in a test.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: bayes-rule-ex-coding-2
+:nonumber:
 
-_Coding:_ check the sequential-update result numerically: two
+Check the sequential-update result numerically: two
 measurements in either order, and both together.
 :::
 

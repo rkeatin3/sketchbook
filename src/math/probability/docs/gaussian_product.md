@@ -46,8 +46,9 @@ Questions to settle:
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} Note 1, Problem 3
 :label: gaussian-product-ex-note1-p3
+:nonumber:
 
 ROB 530 [lecture note 1][note1], Problem 3: derive the information form of
 the density and find its normalizing constant.

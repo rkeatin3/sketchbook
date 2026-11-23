@@ -52,24 +52,27 @@ This is where the plan's open questions about validation get settled (see
 
 ## Exercises
 
-:::{exercise}
+:::{exercise} HW 1 §1.B
 :label: covariance-validation-ex-hw1-1b
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §1.B: which of five matrices are valid
 covariances, and why the others aren't.
 :::
 
-:::{exercise}
+:::{exercise} HW 1 §5
 :label: covariance-validation-ex-hw1-5
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
 factor. Compute the ones that do by hand.
 :::
 
-:::{exercise}
+:::{exercise} Coding
 :label: covariance-validation-ex-coding
+:nonumber:
 
-_Coding:_ the matrices from both problems as test cases for the
+The matrices from both problems as test cases for the
 validation function, plus a singular positive semidefinite matrix and one
 that is nonsymmetric by $10^{-12}$.
 :::
