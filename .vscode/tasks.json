@@ -29,7 +29,7 @@
       "command": "bazel test //${relativeFileDirname}:all",
       "group": "test",
       "problemMatcher": ["$gcc"],
-      "detail": "Runs every test target in the package of the file open in the editor."
+      "detail": "Runs every test target in the package of the file open in the editor. The file must sit next to a BUILD.bazel (a source or test file, not an article under docs/)."
     },
     {
       "label": "Bazel: Test current package (filtered)",
@@ -37,7 +37,7 @@
       "command": "bazel test //${relativeFileDirname}:all --test_filter='${input:testFilter}' --test_output=all",
       "group": "test",
       "problemMatcher": ["$gcc"],
-      "detail": "Runs only the googletest cases matching a filter, e.g. GaussianPdf.* or *Fit*."
+      "detail": "Runs only the googletest cases matching a filter, e.g. GaussianPdf.* or *Fit*. Same package rule as above."
     },
     {
       "label": "Pre-commit: run all",

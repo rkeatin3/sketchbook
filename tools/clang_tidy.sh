@@ -8,6 +8,10 @@
 #
 # --refresh regenerates compile_commands.json first; do that after changing a
 # BUILD.bazel file.
+#
+# Advisory: findings are warnings (WarningsAsErrors is empty), so the script
+# exits 0 when clang-tidy only finds problems. It exits non-zero when a file
+# fails to compile, which makes every later diagnostic for it suspect.
 set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"

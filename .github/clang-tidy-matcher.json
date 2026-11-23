@@ -4,7 +4,7 @@
       "owner": "clang-tidy",
       "pattern": [
         {
-          "regexp": "^(?:\\./)?(.+?):(\\d+):(\\d+): (warning|error): (.+?) \\[(.+)\\]$",
+          "regexp": "^(?:\\./)?(.+?):(\\d+):(\\d+): (warning|error): (.+?)(?: \\[([^\\]]+)\\])?$",
           "file": 1,
           "line": 2,
           "column": 3,
