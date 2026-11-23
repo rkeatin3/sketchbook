@@ -33,6 +33,11 @@ Background with no code of its own is in {doc}`concepts/index`.
 | {doc}`containers </src/utilities/containers/README>` | Data structures from scratch: ring buffer, … |
 | {doc}`concurrency </src/utilities/concurrency/README>` | Thread pool, synchronization, the memory model |
 
+## Learning
+
+{doc}`courseware`: free courses and open textbooks, and a rough plan for
+pairing them with the modules above.
+
 ```{toctree}
 :hidden:
 :caption: Math
@@ -62,6 +67,13 @@ concepts/index
 
 /src/patterns/README
 /src/utilities/README
+```
+
+```{toctree}
+:hidden:
+:caption: Learning
+
+courseware
 ```
 
 ```{toctree}

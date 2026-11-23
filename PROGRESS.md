@@ -43,6 +43,11 @@ What is done and what is next. Updated as work lands.
 
 None started.
 
+## Learning plan
+
+- [x] Courseware survey and phased plan ([docs/courseware.md](docs/courseware.md))
+- [ ] Start the first anchor course (Phase 1 in the plan)
+
 ## Next up
 
 1. Tracking phase 0: foundations and the 2D simulator (see the
