@@ -56,10 +56,24 @@ Worked examples by hand, plus pointers to runnable targets in `examples/`.
 
 ## Exercises
 
-Problems to work, by hand or in code. Cite course and textbook problems by
-source and number, with a link, rather than copying them. Mark coding
-exercises with a target to build. A worked solution goes directly below its
-problem.
+Problems to work, by hand or in code, one `exercise` block each. Cite course
+and textbook problems by source and number, with a link, rather than copying
+them. Start coding exercises with _Coding:_ and name the target to build.
+Label each one `topic-label-ex-short-name`. A worked solution goes in a
+`solution` block right after its exercise, collapsed with `:class: dropdown`.
+Keep the heading, even if empty, until the article is finished.
+
+:::{exercise}
+:label: topic-label-ex-short-name
+
+ROB 530 [Homework 1][hw1], §2.A: what the problem asks, in a few words.
+:::
+
+:::{solution} topic-label-ex-short-name
+:class: dropdown
+
+The worked solution.
+:::
 
 ## See also
 
@@ -68,6 +82,8 @@ problem.
 ## References
 
 {cite}`key` for specific claims. Books and papers go in `docs/references.bib`.
+
+[hw1]: https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public/blob/main/homework/homework-01/NA568_HW1_W22.pdf
 ````
 
 ## Writing rules
