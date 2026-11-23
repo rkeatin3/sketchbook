@@ -6,6 +6,9 @@
 # Comments can't go inside the folded list below, so the reasons are here:
 # - bugprone-throwing-static-initialization, cppcoreguidelines-owning-memory:
 #   fire on every googletest TEST macro expansion, not on code in this repo.
+#   The first is new in LLVM 22 (renamed from cert-err58-cpp, which isn't
+#   enabled here), so it matters for local runs; older clang-tidy, like CI's,
+#   ignores the unknown name.
 # - bugprone-random-generator-seed: constant seeds are deliberate; every
 #   random run must be replayable.
 Checks: >

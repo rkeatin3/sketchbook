@@ -83,10 +83,9 @@ jobs:
       - name: Install clang-tidy
         run: sudo apt-get update && sudo apt-get install -y clang-tidy
 
-      # The matcher turns each finding into an annotation on the PR diff.
-      # The matcher turns findings into annotations on the PR diff. GitHub
-      # shows at most 10 warnings and 10 errors per step; the rest are only in
-      # this step's log.
+      # The matcher turns findings, including compile errors that carry no
+      # check name, into annotations on the PR diff. GitHub shows at most 10
+      # warnings and 10 errors per step; the rest are only in this step's log.
       - name: Run clang-tidy
         run: |
           echo "::add-matcher::.github/clang-tidy-matcher.json"

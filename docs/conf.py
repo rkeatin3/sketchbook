@@ -1,7 +1,8 @@
 """Sphinx configuration for the sketchbook wiki.
 
 The source directory is the repository root, so articles can live in their
-module's docs/ directory under src/. This file sits in docs/ and is selected with ``-c docs``:
+module's docs/ directory under src/. This file sits in docs/ and is selected
+with ``-c docs``:
 
     sphinx-build -c docs -W --keep-going . docs/_build/html
 
