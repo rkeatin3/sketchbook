@@ -133,19 +133,30 @@ article's Exercises, linked rather than copied.
 | Note 1, Problem 3: the information form | {ref}`gaussian-product` |
 | Note 1, Example 2 and §5: marginals, conditionals, confidence ellipses (code) | {ref}`gaussian-marginal-conditional`, {ref}`mahalanobis-distance` |
 
-## Foundations
+## Work chunks
 
-Worked before the Gaussian steps, in this order. Each article's Derivation
-lists its results under "To prove".
+Each chunk is one branch and one PR, sized to a day or two of work. A chunk is
+done when its articles' derivations are written, its code and tests pass,
+its exercises are worked, and `PROGRESS.md` is updated. Chunks are listed in
+the suggested order; the Steps below hold the questions for each.
 
-1. {ref}`discrete-distribution` and {ref}`bayes-rule`, with a small
-   distribution type that the {ref}`bayes-filter` then uses for the circular
-   world.
-2. {ref}`correlation`, alongside step 0.
-3. {ref}`streaming-moments`, after step 0: an accumulator checked against
-   `Fit`.
-4. {ref}`covariance-validation`, which settles step 1 and the open questions
-   about validation.
+| # | Chunk | Articles | Code | Exercises | Steps |
+|---|---|---|---|---|---|
+| 1 | Distributions and Bayes' rule | {ref}`discrete-distribution`, {ref}`bayes-rule` | A distribution type: marginalize, condition, Bayes update | HW 1 §1.D(a), §2.A, §3 | — |
+| 2 | The Bayes filter | {ref}`bayes-filter` | Histogram filter in `filtering`; the circular world in `examples/` | HW 1 §2.B, §2.C | — |
+| 3 | Moments and correlation | {ref}`random-vector-moments`, {ref}`correlation` | `Fit` (done); a correlation matrix; the $X$, $X^2$ test | HW 1 §1.A; note 1, Problem 1 | 0 |
+| 4 | Streaming moments | {ref}`streaming-moments` | An accumulator with merge, checked against `Fit` | HW 1 §1.C | 0 |
+| 5 | Valid covariances | {ref}`covariance-validation`, {ref}`cholesky-factorization` | The validation function the constructor calls | HW 1 §1.B, §5 | 1, 9 |
+| 6 | Density and sampling | {ref}`multivariate-gaussian`, {ref}`gaussian-sampling` | `Pdf`, `Sample`, `SampleN` (done); `LogPdf`; the round-trip tolerance | Note 1, Problem 2 | 3, 4 |
+| 7 | Affine transforms | {ref}`gaussian-affine-transform`, {ref}`characteristic-function` | `Transform` | HW 1 §1.D(b), §6 | 2 |
+| 8 | Maximum likelihood | {ref}`gaussian-mle` | `Fit` (done) | — | 5 |
+| 9 | Mahalanobis distance | {ref}`mahalanobis-distance`, {ref}`chi-squared-distribution` | `SquaredMahalanobis`; a confidence-ellipse example | Note 1, §5 | 6 |
+| 10 | Marginals and conditionals | {ref}`gaussian-marginal-conditional` | `Marginal`, `Condition` | HW 1 §4; note 1, Example 2 | 7 |
+| 11 | Products of Gaussians | {ref}`gaussian-product` | `Product` | Note 1, Problem 3 | 8 |
+| 12 | Monte Carlo propagation | {ref}`monte-carlo-propagation` | The banana example | — | 10 |
+
+Chunks 1–2 cover the start of ROB 530 and don't depend on the Gaussian work.
+Chunk 10 is the one Homework 2 (Kalman filtering) leans on most.
 
 ## Steps
 
