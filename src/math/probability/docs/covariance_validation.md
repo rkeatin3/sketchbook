@@ -34,10 +34,14 @@ _To prove:_
 This is where the plan's open questions about validation get settled (see
 {ref}`probability-plan`, step 1):
 
-- Positive definite or positive semidefinite: which one does `Gaussian<N>`
-  require?
-- Which test, with which tolerances: an exact symmetry check or a relative
-  one; Cholesky (`LLT`), `LDLT`, or the smallest eigenvalue?
+- `Gaussian<N>` requires symmetric positive *semi*definite, so singular
+  covariances are valid. Which test accepts those and rejects indefinite
+  matrices, with which tolerances: an exact symmetry check or a relative one;
+  Cholesky (`LLT`), `LDLT`, or the smallest eigenvalue?
+- Which operations need positive definite, and how does each handle a
+  singular covariance?
+- Every operation that produces a new covariance re-checks it. Where does
+  that check live so it's hard to forget?
 - `Eigen::LLT` reads only the lower triangle. What does that mean for a
   nonsymmetric input?
 - Report failures with an exception, an assert, or `std::expected`?
@@ -48,13 +52,27 @@ This is where the plan's open questions about validation get settled (see
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §1.B: which of five matrices are valid
-   covariances, and why the others aren't.
-2. ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
-   factor. Compute the ones that do by hand.
-3. _Coding:_ the matrices from both problems as test cases for the
-   validation function, plus a singular positive semidefinite matrix and one
-   that is nonsymmetric by $10^{-12}$.
+:::{exercise}
+:label: covariance-validation-ex-hw1-1b
+
+ROB 530 [Homework 1][hw1], §1.B: which of five matrices are valid
+covariances, and why the others aren't.
+:::
+
+:::{exercise}
+:label: covariance-validation-ex-hw1-5
+
+ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
+factor. Compute the ones that do by hand.
+:::
+
+:::{exercise}
+:label: covariance-validation-ex-coding
+
+_Coding:_ the matrices from both problems as test cases for the
+validation function, plus a singular positive semidefinite matrix and one
+that is nonsymmetric by $10^{-12}$.
+:::
 
 ## See also
 

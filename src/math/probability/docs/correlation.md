@@ -17,11 +17,12 @@ _To prove:_
 
 - The Cauchy–Schwarz inequality for expectations,
   $E[XY]^2 \le E[X^2]\, E[Y^2]$.
-- $|\rho_{XY}| \le 1$, with equality exactly when $Y$ is an affine function of
-  $X$ (with probability one).
+- $|\rho_{XY}| \le 1$ for $X$ and $Y$ with nonzero variances, with equality
+  exactly when $Y$ is an affine function of $X$ (with probability one).
 - Independent implies uncorrelated.
 - Uncorrelated does not imply independent: $X \sim \mathcal{N}(0, 1)$ and
-  $Y = X^2$.
+  $Y = X^2$. Which property of the distribution of $X$ makes the example
+  work, and which other distributions would do?
 - The correlation matrix $D^{-1/2} \Sigma D^{-1/2}$, with $D$ the diagonal of
   $\Sigma$, is symmetric positive semidefinite with ones on the diagonal.
 
@@ -35,7 +36,7 @@ The converse for *jointly* Gaussian variables is in
 Questions to settle:
 
 - Computing a correlation matrix from a covariance: what happens when a
-  variance is zero?
+  variance is zero? (The same degenerate case as in the bound above.)
 - Should rounding be allowed to push a coefficient past $\pm 1$, or should the
   result be clamped?
 - How does a test show dependence for the $X, X^2$ pair, when the sample
@@ -45,9 +46,18 @@ Questions to settle:
 
 ## Exercises
 
-1. ROB 530 [lecture note 1][note1], Problem 1: the $X$, $X^2$ pair.
-2. _Coding:_ sample the pair and show, with a fixed seed, that the sample
-   correlation is near zero while the samples are clearly dependent.
+:::{exercise}
+:label: correlation-ex-note1-p1
+
+ROB 530 [lecture note 1][note1], Problem 1: the $X$, $X^2$ pair.
+:::
+
+:::{exercise}
+:label: correlation-ex-coding
+
+_Coding:_ sample the pair and show, with a fixed seed, that the sample
+correlation is near zero while the samples are clearly dependent.
+:::
 
 ## See also
 

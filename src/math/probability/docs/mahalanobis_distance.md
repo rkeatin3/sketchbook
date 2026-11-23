@@ -20,21 +20,35 @@ _To prove:_
   Gaussian, including its parameter.
 - The shape of its level sets, and how they relate to the eigendecomposition of
   $\Sigma$.
+- What happens to the distance and its distribution when $\Sigma$ is
+  singular.
+- How the distribution changes when the mean or covariance used is wrong, and
+  why that makes it a consistency test (NEES, NIS).
 
 ## Numerical considerations
 
 ## Implementation
 
+Questions to settle:
+
+- Computing the distance without forming $\Sigma^{-1}$.
+- What `SquaredMahalanobis` does for a singular $\Sigma$.
+
 ## Examples
 
 ## Exercises
 
-1. _Coding:_ the 95% confidence ellipse of ROB 530
-   [lecture note 1][note1], §5 and Figure 2: draw samples, and check that about
-   95% fall inside the ellipse.
+:::{exercise}
+:label: mahalanobis-distance-ex-coding
+
+_Coding:_ the 95% confidence ellipse of ROB 530
+[lecture note 1][note1], §5 and Figure 2: draw samples, and check that about
+95% fall inside the ellipse.
+:::
 
 ## See also
 
+- {ref}`cholesky-factorization`: a triangular solve instead of an inverse
 - {ref}`multivariate-gaussian`: the same quadratic form appears in the density
 - {ref}`gaussian-sampling`: the distance distribution validates a sampler
 

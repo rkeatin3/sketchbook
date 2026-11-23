@@ -14,7 +14,7 @@ quantiles give the bounds used in gating and consistency tests.
 
 _To prove:_
 
-- The distribution of a sum of $k$ squared independent standard normals (cite).
+- The distribution of a sum of $k$ squared independent standard normals.
 
 ## Numerical considerations
 

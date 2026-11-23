@@ -58,12 +58,26 @@ Runnable target: the circular world from the Exercises, in `examples/`.
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §2.B: one predict–update cycle by hand for a
-   robot painting an object. Choose and justify the prior.
-2. ROB 530 [Homework 1][hw1], §2.C: localization on a circular world with
-   landmarks. _Coding:_ the main target for this article. Report the final
-   belief and check it against a hand calculation of the first step.
-3. {cite:t}`thrun2005`, Ch. 2 exercises: Bayes filter calculations.
+:::{exercise}
+:label: bayes-filter-ex-hw1-2b
+
+ROB 530 [Homework 1][hw1], §2.B: one predict–update cycle by hand for a
+robot painting an object. Choose and justify the prior.
+:::
+
+:::{exercise}
+:label: bayes-filter-ex-hw1-2c
+
+ROB 530 [Homework 1][hw1], §2.C: localization on a circular world with
+landmarks. _Coding:_ the main target for this article. Report the final
+belief and check it against a hand calculation of the first step.
+:::
+
+:::{exercise}
+:label: bayes-filter-ex-thrun-ch2
+
+{cite:t}`thrun2005`, Ch. 2 exercises: Bayes filter calculations.
+:::
 
 ## See also
 

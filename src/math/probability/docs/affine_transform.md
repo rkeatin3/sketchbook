@@ -16,26 +16,49 @@ the result, and why the result is still Gaussian.
 
 _To prove:_
 
-- The mean and covariance of $Fx + b$ (from {ref}`random-vector-moments`;
-  cite).
+- The mean and covariance of $Fx + b$ (proved in
+  {ref}`random-vector-moments`; cite it here).
 - Closure: $Fx + b$ is Gaussian, for any $F$, square or not. Uses
   {ref}`characteristic-function`.
 - Corollary: the sum of independent Gaussian random variables is Gaussian, and
   its parameters.
+- The rank of the result's covariance, for example when $F$ has more rows
+  than columns.
 
 ## Numerical considerations
 
 ## Implementation
 
+Questions to settle:
+
+- The result can be singular even when $\Sigma$ isn't. How does `Transform`
+  handle that?
+- Is $F \Sigma F^\top$ still symmetric positive semidefinite in floating
+  point, and does `Transform` re-check it?
+
 ## Examples
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §1.D(b): an affine map of a Gaussian random
-   vector is Gaussian.
-2. ROB 530 [Homework 1][hw1], §6: a linear calibration of a Gaussian range
-   measurement. Is the result exact or an approximation?
-3. _Coding:_ check `Transform` against samples pushed through the same map.
+:::{exercise}
+:label: gaussian-affine-transform-ex-hw1-1db
+
+ROB 530 [Homework 1][hw1], §1.D(b): an affine map of a Gaussian random
+vector is Gaussian.
+:::
+
+:::{exercise}
+:label: gaussian-affine-transform-ex-hw1-6
+
+ROB 530 [Homework 1][hw1], §6: a linear calibration of a Gaussian range
+measurement. Is the result exact or an approximation?
+:::
+
+:::{exercise}
+:label: gaussian-affine-transform-ex-coding
+
+_Coding:_ check `Transform` against samples pushed through the same map.
+:::
 
 ## See also
 

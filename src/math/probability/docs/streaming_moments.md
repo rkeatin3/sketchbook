@@ -22,8 +22,8 @@ _To prove:_
   summary of the combined data.
 - Recovering $\sum_i x_i x_i^\top$ from a count, a mean, and a biased sample
   covariance.
-- Merging is associative, so the result doesn't depend on how the data was
-  split.
+- Merging is associative in exact arithmetic, so the result doesn't depend on
+  how the data was split. What changes in floating point?
 
 ## Numerical considerations
 
@@ -37,20 +37,35 @@ Questions to settle:
 - What does merging with an empty summary do, and how about a summary of one
   sample?
 - Test oracles: what should merging two halves give, and what should it match
-  for any split point and any order?
+  for any split point and any order? With what tolerance?
+- Is the merge accurate when one count is much larger than the other?
 
 ## Examples
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §1.C: two data sets known only by count, mean,
-   and biased covariance. Recover each $\sum x x^\top$, then the combined mean
-   and covariance.
-2. _Coding:_ the same numbers through the merge, checked against the hand
-   answer.
-3. _Coding:_ feed values with a large offset (e.g. $10^8 + \epsilon$) into
-   the naive one-pass formula and into Welford's update, and compare both with
-   the two-pass result.
+:::{exercise}
+:label: streaming-moments-ex-hw1-1c
+
+ROB 530 [Homework 1][hw1], §1.C: two data sets known only by count, mean,
+and biased covariance. Recover each $\sum x x^\top$, then the combined mean
+and covariance.
+:::
+
+:::{exercise}
+:label: streaming-moments-ex-coding
+
+_Coding:_ the same numbers through the merge, checked against the hand
+answer.
+:::
+
+:::{exercise}
+:label: streaming-moments-ex-coding-2
+
+_Coding:_ feed values with a large offset (e.g. $10^8 + \epsilon$) into
+the naive one-pass formula and into Welford's update, and compare both with
+the two-pass result.
+:::
 
 ## See also
 

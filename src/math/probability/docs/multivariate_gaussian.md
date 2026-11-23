@@ -24,18 +24,34 @@ _To prove:_
   counterexample: two variables that are each Gaussian and uncorrelated, but
   dependent.
 - Why $\Sigma$ must be symmetric positive semidefinite, and what happens to the
-  density when it's singular.
+  density when it's singular. Where does a Gaussian with singular $\Sigma$
+  live, and how can it be described without a density?
+- The log-density, and why evaluate it instead of the density.
+- The log-determinant from a Cholesky factor of $\Sigma$.
+- The quadratic form $(x - \mu)^\top \Sigma^{-1} (x - \mu)$ without forming
+  $\Sigma^{-1}$.
 
 ## Numerical considerations
 
 ## Implementation
 
+Questions to settle:
+
+- `Pdf` and `LogPdf` for a singular $\Sigma$: refuse, or evaluate on the
+  subspace the distribution lives in?
+- Which factorization serves both the log-determinant and the quadratic form,
+  and still works when $\Sigma$ is only semidefinite?
+
 ## Examples
 
 ## Exercises
 
-1. ROB 530 [lecture note 1][note1], Problem 2: uncorrelated jointly Gaussian
-   vectors are independent.
+:::{exercise}
+:label: multivariate-gaussian-ex-note1-p2
+
+ROB 530 [lecture note 1][note1], Problem 2: uncorrelated jointly Gaussian
+vectors are independent.
+:::
 
 ## See also
 

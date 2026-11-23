@@ -22,8 +22,11 @@ pure concept pages.
 - **Covariance form first.** The information form may come later behind a
   strategy, so the public interface shouldn't assume how the parameters are
   stored.
-- **Validate the invariant.** Check that $\Sigma$ is symmetric positive
-  semidefinite on construction, and again in any operation that could break it.
+- **Covariances are symmetric positive semidefinite.** Singular
+  (rank-deficient) covariances are valid, so every operation either works for
+  them or handles the rank deficiency explicitly (step 9).
+- **Validate the invariant.** Check it on construction, and again after every
+  operation that produces a new covariance.
 - **No caching** of factorizations for now.
 - **Fixed dimensions**, known at compile time.
 - **Header-only**, since the class is templated on its dimension.
@@ -81,36 +84,38 @@ reading for that topic.
 
 ### Proofs
 
-Proofs use the `{prf:theorem}` and `{prf:proof}` directives. Prove fully the
-results the code depends on, and the properties the filters lean on. Cite the
-rest. Each article's Derivation section lists its results under "To prove".
+Proofs use the `{prf:theorem}` and `{prf:proof}` directives. Prove by
+default: the proofs are also practice. Cite only results whose proofs need
+machinery beyond this module, such as measure theory. Each article's
+Derivation section lists its results under "To prove".
 
 | Result | Article | Depth |
 |---|---|---|
 | Consequences of the axioms; complements of independent events | {ref}`discrete-distribution` | Prove |
 | Independence as a rank-one joint table | {ref}`discrete-distribution` | Prove |
 | Total probability, Bayes' rule, sequential updates | {ref}`bayes-rule` | Prove |
-| Linearity of expectation for vectors and matrices; the covariance identity | {ref}`random-vector-moments` | Prove |
+| Linearity of expectation for vectors and matrices; the covariance identity; cross-covariance and the covariance of a sum | {ref}`random-vector-moments` | Prove |
 | Cauchy–Schwarz and $\lvert\rho\rvert \le 1$; independent implies uncorrelated, not conversely | {ref}`correlation` | Prove |
 | Welford's update and merging summaries | {ref}`streaming-moments` | Prove |
 | Covariances are exactly the symmetric positive semidefinite matrices; equivalent tests | {ref}`covariance-validation` | Prove |
 | Mean and covariance of $AX + b$, for any distribution | {ref}`random-vector-moments` | Prove |
 | The divisor that makes the sample covariance unbiased | {ref}`random-vector-moments` | Prove |
 | The density integrates to 1 (the normalizing constant `Pdf` uses) | {ref}`multivariate-gaussian` | Prove |
+| The log-density, its log-determinant via Cholesky, and the quadratic form without an inverse (what `LogPdf` uses) | {ref}`multivariate-gaussian` | Prove |
 | The parameters are the mean and covariance | {ref}`multivariate-gaussian` | Prove |
 | Uncorrelated implies independent for jointly Gaussian variables, and a counterexample otherwise | {ref}`multivariate-gaussian` | Prove |
 | Maximum-likelihood mean and covariance | {ref}`gaussian-mle` | Prove |
 | Characteristic function of a Gaussian and of an affine map | {ref}`characteristic-function` | Prove |
-| A characteristic function determines its distribution | {ref}`characteristic-function` | Cite |
+| A characteristic function determines its distribution | {ref}`characteristic-function` | Cite (measure theory) |
 | Closure under affine maps | {ref}`gaussian-affine-transform` | Prove |
 | Sums of independent Gaussians (how process noise enters prediction) | {ref}`gaussian-affine-transform` | Prove (corollary) |
 | The distribution of $Az + b$, $z \sim \mathcal{N}(0, I)$ (what `Sample` relies on) | {ref}`gaussian-sampling` | Prove (corollary) |
-| Existence of the Cholesky factorization | {ref}`cholesky-factorization` | Cite, or prove |
-| Sum of squared standard normals | {ref}`chi-squared-distribution` | Cite |
-| Distribution of the squared Mahalanobis distance | {ref}`mahalanobis-distance` | Prove |
+| Existence and uniqueness of the Cholesky factorization, and the algorithm | {ref}`cholesky-factorization` | Prove |
+| Sum of squared standard normals | {ref}`chi-squared-distribution` | Prove |
+| Distribution of the squared Mahalanobis distance, including singular $\Sigma$ and a wrong mean or covariance | {ref}`mahalanobis-distance` | Prove |
 | Marginals and conditionals of a joint Gaussian | {ref}`gaussian-marginal-conditional` | Prove |
-| Products of Gaussian densities | {ref}`gaussian-product` | Prove |
-| Convergence of Monte Carlo moment estimates | {ref}`monte-carlo-propagation` | Cite |
+| Products of Gaussian densities; fusion and its link to the Kalman update | {ref}`gaussian-product` | Prove |
+| Convergence of Monte Carlo moment estimates | {ref}`monte-carlo-propagation` | Cite (measure theory) |
 
 ## Course alignment
 
@@ -242,7 +247,8 @@ Worked in {ref}`covariance-validation`.
 ### 9. Rank-deficient covariances
 
 - Which of the operations above still make sense when $\Sigma$ is positive
-  semidefinite but singular?
+  semidefinite but singular? For each operation in the API table, record
+  whether it works for a singular $\Sigma$, and if not, how it handles one.
 - Which factorizations still work, and which fail?
 - Tie this to the roadmap question about the rank of the discretized
   white-noise-acceleration process noise.
@@ -300,7 +306,6 @@ sections, with a pointer to the relevant part.
   your own uniform-to-normal step (Box–Muller, the polar method).
 - Petersen & Pedersen, *The Matrix Cookbook*, §8 (free): Gaussian identities,
   for checking rather than learning.
-
 - Thrun, Burgard, Fox, *Probabilistic Robotics*, Ch. 2 (owned or library):
   Bayes' rule and the Bayes filter, the ROB 530 textbook.
 - ROB 530 lecture note 1 (free): a compact review of the foundations and the
@@ -324,10 +329,10 @@ companion for the Mahalanobis, chi-squared, and conditioning articles.
 ## Open questions
 
 - Member vs. free functions, especially for transforms and conditioning.
-- The two validation questions below are worked in
-  {ref}`covariance-validation`.
-- Does the constructor's check match the decision? `Eigen::LLT` succeeds only
-  for positive *definite* matrices, so it rejects singular PSD covariances
-  (step 9), and it reads only the lower triangle, so it never checks symmetry.
+- The constructor's check doesn't match the decision yet: `Eigen::LLT`
+  succeeds only for positive *definite* matrices, so it rejects singular
+  covariances, and it reads only the lower triangle, so it never checks
+  symmetry. Chunk 5 ({ref}`covariance-validation`) replaces it.
 - How should validation failures be reported: an exception (current), an
-  assert, or a factory returning `std::expected`?
+  assert, or a factory returning `std::expected`? Also worked in
+  {ref}`covariance-validation`.

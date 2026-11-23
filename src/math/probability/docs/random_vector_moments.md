@@ -19,9 +19,12 @@ _To prove:_
 - Expectation of a random vector or matrix is linear: $E[AX + b]$ and $E[AXB]$
   for constant $A$, $B$, $b$.
 - The covariance identity $E[(X-\mu)(X-\mu)^\top] = E[XX^\top] - \mu\mu^\top$.
+- The cross-covariance $\operatorname{Cov}(X, Y)$ of two random vectors, how it
+  relates to $\operatorname{Cov}(Y, X)$, and the covariance of a sum $X + Y$.
 - The mean and covariance of $AX + b$, for any distribution.
   {ref}`gaussian-affine-transform` relies on this.
-- Which divisor makes the sample covariance unbiased.
+- Which divisor makes the sample covariance unbiased, for independent,
+  identically distributed samples.
 
 ## Numerical considerations
 
@@ -31,9 +34,13 @@ _To prove:_
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §1.A: linearity of expectation for three
-   continuous random variables, from the definition in terms of the joint
-   density, without assuming independence.
+:::{exercise}
+:label: random-vector-moments-ex-hw1-1a
+
+ROB 530 [Homework 1][hw1], §1.A: linearity of expectation for three
+continuous random variables, from the definition in terms of the joint
+density, without assuming independence.
+:::
 
 ## See also
 

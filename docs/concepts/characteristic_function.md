@@ -17,7 +17,8 @@ _To prove:_
 
 - The characteristic function of a Gaussian, scalar then multivariate.
 - The characteristic function of $Fx + b$ in terms of that of $x$.
-- A characteristic function determines its distribution (cite).
+- A characteristic function determines its distribution (cite; the proof
+  needs measure theory).
 
 ## Numerical considerations
 

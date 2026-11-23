@@ -17,7 +17,11 @@ linearization and the unscented transform are tested against.
 _To prove:_
 
 - Why the fitted mean and covariance converge to the true moments of $g(x)$ as
-  the sample count grows (cite the law of large numbers).
+  the sample count grows (cite the law of large numbers), and the moment
+  conditions on $g(x)$ that this needs.
+- How fast they converge, under the same conditions.
+- What the fitted Gaussian captures about the distribution of $g(x)$, and
+  what it doesn't.
 
 ## Numerical considerations
 
@@ -29,6 +33,8 @@ _To prove:_
 
 ## See also
 
+- {ref}`gaussian-mle`: the fit applied to the propagated samples
+- {ref}`streaming-moments`: fitting in one pass over the samples
 - {doc}`Filtering </src/estimation/filtering/README>`: the EKF and UKF
   approximate this same propagation
 

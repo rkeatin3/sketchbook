@@ -16,7 +16,10 @@ conditional $p(x \mid y)$, and how conditioning relates to the Kalman update.
 _To prove:_
 
 - The marginal of a joint Gaussian is Gaussian, and its parameters.
-- The conditional $p(x \mid y)$ is Gaussian, and its parameters.
+- The conditional $p(x \mid y)$ is Gaussian, and its parameters. What does it
+  require of the covariance of $y$?
+- How the conditional covariance compares with the marginal one, and what it
+  depends on.
 - The Kalman update as conditioning a joint Gaussian over state and
   measurement.
 
@@ -24,21 +27,35 @@ _To prove:_
 
 ## Implementation
 
+Questions to settle:
+
+- Conditioning when the observed block's covariance is singular.
+- Re-checking that the conditional covariance is still symmetric positive
+  semidefinite after the computation.
+
 ## Examples
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §4: how the conditional variance compares with
-   the marginal one, and what it depends on.
-2. _Coding:_ reproduce the marginals and the conditional
-   $p(x_1 \mid x_2 = 0.9)$ in ROB 530 [lecture note 1][note1], Example 2,
-   with `Marginal` and `Condition`.
+:::{exercise}
+:label: gaussian-marginal-conditional-ex-hw1-4
+
+ROB 530 [Homework 1][hw1], §4: how the conditional variance compares with
+the marginal one, and what it depends on.
+:::
+
+:::{exercise}
+:label: gaussian-marginal-conditional-ex-coding
+
+_Coding:_ reproduce the marginals and the conditional
+$p(x_1 \mid x_2 = 0.9)$ in ROB 530 [lecture note 1][note1], Example 2,
+with `Marginal` and `Condition`.
+:::
 
 ## See also
 
 - {ref}`gaussian-product`: the same update, written as a product of prior
   and likelihood densities
-
 - {doc}`Filtering </src/estimation/filtering/README>`: the update step is
   conditioning on a measurement
 

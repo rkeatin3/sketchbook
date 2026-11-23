@@ -24,17 +24,34 @@ _To prove:_
 - The same result in information form, and why it's simpler there.
 - The normalizing constant: what is it, and why is it itself a Gaussian
   density evaluated at a point?
+- Fusing two estimates of the same state: why their errors must be
+  independent, and how the result relates to the Kalman update (see
+  {ref}`gaussian-marginal-conditional`).
+- Which of these results survive when one of the covariances is singular.
 
 ## Numerical considerations
 
 ## Implementation
 
+Questions to settle:
+
+- The plan stores covariance form. Compute `Product` through the information
+  form, or through a gain-style update in covariance form? Which inverses does
+  each need, and which is better conditioned?
+- What happens when either covariance is singular, given that the
+  information form can't represent one?
+- Is the result still symmetric positive semidefinite in floating point?
+
 ## Examples
 
 ## Exercises
 
-1. ROB 530 [lecture note 1][note1], Problem 3: derive the information form of
-   the density and find its normalizing constant.
+:::{exercise}
+:label: gaussian-product-ex-note1-p3
+
+ROB 530 [lecture note 1][note1], Problem 3: derive the information form of
+the density and find its normalizing constant.
+:::
 
 ## See also
 

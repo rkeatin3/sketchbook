@@ -20,10 +20,19 @@ _To prove:_
   for $z \sim \mathcal{N}(0, I)$.
 - Which matrices $A$ produce a given $\Sigma$, and why the Cholesky factor is
   one of them.
+- Which of those matrices still exist when $\Sigma$ is singular.
 
 ## Numerical considerations
 
 ## Implementation
+
+Questions to settle:
+
+- Which factorization, so that singular positive semidefinite covariances can
+  be sampled too?
+- `std::normal_distribution` isn't specified bit-for-bit across standard
+  libraries. What does that mean for fixed-seed tests: which assertions are
+  portable, and which pin one library's output?
 
 ## Examples
 
@@ -31,6 +40,8 @@ _To prove:_
 
 ## See also
 
+- {ref}`multivariate-gaussian`: the distribution being sampled
+- {ref}`random-vector-moments`: sample moments are how a sampler is validated
 - {ref}`mahalanobis-distance`: the distribution of sample distances is a test
   of the sampler
 - {ref}`monte-carlo-propagation`: samples pushed through a nonlinear function

@@ -16,7 +16,7 @@ stable. Eigen provides the implementation.
 _To prove:_
 
 - Existence and uniqueness of $\Sigma = LL^\top$ for symmetric positive
-  definite $\Sigma$ (prove or cite).
+  definite $\Sigma$, and the algorithm the proof gives.
 - What goes wrong when $\Sigma$ is positive semidefinite but singular.
 
 ## Numerical considerations
@@ -25,8 +25,12 @@ _To prove:_
 
 ## Exercises
 
-1. ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
-   factor. Compute the ones that do by hand.
+:::{exercise}
+:label: cholesky-factorization-ex-hw1-5
+
+ROB 530 [Homework 1][hw1], §5: which matrices have a unique Cholesky
+factor. Compute the ones that do by hand.
+:::
 
 ## See also
 
