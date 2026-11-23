@@ -1,12 +1,6 @@
 % Shared bibliography for the wiki. Add an entry when an article first cites
-% it. Keys are <firstauthor><year>, lowercase (e.g. barshalom2001).
-
-@book{barshalom2001,
-  author    = {Bar-Shalom, Yaakov and Li, X. Rong and Kirubarajan, Thiagalingam},
-  title     = {Estimation with Applications to Tracking and Navigation: Theory, Algorithms and Software},
-  publisher = {Wiley},
-  year      = {2001},
-}
+% it. Keys are <firstauthor><year>, lowercase (e.g. barshalom2001), and entries
+% are sorted by key.
 
 @book{barfoot2024,
   author    = {Barfoot, Timothy D.},
@@ -15,6 +9,13 @@
   publisher = {Cambridge University Press},
   year      = {2024},
   url       = {https://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser24.pdf},
+}
+
+@book{barshalom2001,
+  author    = {Bar-Shalom, Yaakov and Li, X. Rong and Kirubarajan, Thiagalingam},
+  title     = {Estimation with Applications to Tracking and Navigation: Theory, Algorithms and Software},
+  publisher = {Wiley},
+  year      = {2001},
 }
 
 @book{bishop2006,
@@ -34,12 +35,30 @@
   url       = {http://probabilitybook.net},
 }
 
+@article{chan1983,
+  author  = {Chan, Tony F. and Golub, Gene H. and LeVeque, Randall J.},
+  title   = {Algorithms for Computing the Sample Variance: Analysis and Recommendations},
+  journal = {The American Statistician},
+  volume  = {37},
+  number  = {3},
+  pages   = {242--247},
+  year    = {1983},
+}
+
 @book{devroye1986,
   author    = {Devroye, Luc},
   title     = {Non-Uniform Random Variate Generation},
   publisher = {Springer},
   year      = {1986},
   url       = {https://luc.devroye.org/rnbookindex.html},
+}
+
+@misc{ghaffari2022,
+  author       = {Ghaffari, Maani},
+  title        = {{ROB} 530 Mobile Robotics: Methods and Algorithms, Lecture Notes and Homework},
+  howpublished = {University of Michigan, Winter 2022},
+  year         = {2022},
+  url          = {https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public},
 }
 
 @book{murphy2022,
@@ -50,12 +69,13 @@
   url       = {https://probml.github.io/pml-book/book1.html},
 }
 
-@misc{petersen2012,
-  author       = {Petersen, Kaare Brandt and Pedersen, Michael Syskind},
-  title        = {The Matrix Cookbook},
-  howpublished = {Technical University of Denmark},
-  year         = {2012},
-  url          = {https://www2.imm.dtu.dk/pubdb/pubs/3274-full.html},
+@techreport{petersen2012,
+  author      = {Petersen, Kaare Brandt and Pedersen, Michael Syskind},
+  title       = {The Matrix Cookbook},
+  institution = {Technical University of Denmark},
+  year        = {2012},
+  note        = {Version of November 15, 2012},
+  url         = {https://www2.imm.dtu.dk/pubdb/pubs/3274-full.html},
 }
 
 @book{sarkka2023,
@@ -67,21 +87,19 @@
   url       = {https://users.aalto.fi/~ssarkka/pub/bfs_book_2023_online.pdf},
 }
 
+@book{thrun2005,
+  author    = {Thrun, Sebastian and Burgard, Wolfram and Fox, Dieter},
+  title     = {Probabilistic Robotics},
+  publisher = {MIT Press},
+  year      = {2005},
+  url       = {http://www.probabilistic-robotics.org},
+}
+
 @book{trefethen1997,
   author    = {Trefethen, Lloyd N. and Bau, David},
   title     = {Numerical Linear Algebra},
   publisher = {SIAM},
   year      = {1997},
-}
-
-@article{chan1983,
-  author  = {Chan, Tony F. and Golub, Gene H. and LeVeque, Randall J.},
-  title   = {Algorithms for Computing the Sample Variance: Analysis and Recommendations},
-  journal = {The American Statistician},
-  volume  = {37},
-  number  = {3},
-  pages   = {242--247},
-  year    = {1983},
 }
 
 @article{welford1962,
@@ -92,20 +110,4 @@
   number  = {3},
   pages   = {419--420},
   year    = {1962},
-}
-
-@book{thrun2005,
-  author    = {Thrun, Sebastian and Burgard, Wolfram and Fox, Dieter},
-  title     = {Probabilistic Robotics},
-  publisher = {MIT Press},
-  year      = {2005},
-  url       = {http://www.probabilistic-robotics.org},
-}
-
-@misc{ghaffari2022,
-  author       = {Ghaffari, Maani},
-  title        = {{ROB} 530 Mobile Robotics: Methods and Algorithms, Lecture Notes and Homework},
-  howpublished = {University of Michigan, Winter 2022},
-  year         = {2022},
-  url          = {https://github.com/UMich-CURLY-teaching/UMich-ROB-530-public},
 }

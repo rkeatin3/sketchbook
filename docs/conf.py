@@ -31,6 +31,8 @@ extensions = [
     "sphinxcontrib.bibtex",
     "sphinx_tippy",
     "sphinx_copybutton",
+    "sphinx_exercise",  # numbered {exercise} and {solution} blocks
+    "sphinx_togglebutton",  # collapses solutions marked :class: dropdown
 ]
 
 # --- MyST -------------------------------------------------------------------
