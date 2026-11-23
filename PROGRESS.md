@@ -17,13 +17,14 @@ What is done and what is next. Updated as work lands.
 
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| lie_groups | — | — | — | — |
+| probability | plan; 14 + 3 concept articles scaffolded | — | — | — |
+| lie_groups  | — | — | — | — |
 
 ## Estimation
 
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
-| filtering     | — | — | — | — |
+| filtering     | Bayes filter scaffolded | — | — | — |
 | factor_graphs | — | — | — | — |
 
 ## Robotics

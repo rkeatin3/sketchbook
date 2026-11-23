@@ -8,6 +8,7 @@ follow the links, or use the search box, the {doc}`glossary`, or the
 
 | Module | Topic | Builds on |
 |---|---|---|
+| {doc}`probability </src/math/probability/README>` | Distributions and Bayes' rule, moments, multivariate Gaussians | linear algebra |
 | {doc}`lie_groups </src/math/lie_groups/README>` | Lie groups, SO(3), SE(3), rigid body kinematics | linear algebra |
 
 Background with no code of its own is in {doc}`concepts/index`.
@@ -37,6 +38,7 @@ Background with no code of its own is in {doc}`concepts/index`.
 :hidden:
 :caption: Math
 
+/src/math/probability/README
 /src/math/lie_groups/README
 concepts/index
 ```
