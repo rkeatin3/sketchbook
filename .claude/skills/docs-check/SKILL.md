@@ -39,6 +39,10 @@ whole wiki.
 - **Notation and glossary:** symbols used are in `docs/conventions/notation.md`,
   terms are defined in the glossary on first use, and articles agree with each
   other.
+- **Notation clashes:** the same symbol with two meanings (across articles, or
+  between an article and a text it cites, such as $\eta$ for a normalizer and
+  for an information vector), or two symbols for one quantity. Report each
+  clash with where it occurs; the choice of symbol is Ryan's.
 - **Flashcards:** each `<topic>.cards.yaml` sits beside its article
   (`python tools/flashcards.py` fails otherwise), and no card states a result
   still on the article's "_To prove:_" list.

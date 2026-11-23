@@ -78,12 +78,22 @@ class CardFile:
 
 
 def to_anki_html(text: str) -> str:
-    """Convert a card's Markdown-ish text to the HTML Anki stores."""
-    escaped = html.escape(text.strip(), quote=False)
-    escaped = DISPLAY_MATH.sub(r"\\[\1\\]", escaped)
-    escaped = INLINE_MATH.sub(r"\\(\1\\)", escaped)
-    escaped = INLINE_CODE.sub(r"<code>\1</code>", escaped)
-    return escaped.replace("\n", "<br>")
+    """Convert a card's Markdown-ish text to the HTML Anki stores.
+
+    Code spans are kept verbatim, so a `$` inside one is never read as math.
+    """
+    # re.split with one capture group alternates prose (even indices) and the
+    # contents of code spans (odd indices).
+    pieces = INLINE_CODE.split(text.strip())
+    converted = []
+    for index, piece in enumerate(pieces):
+        escaped = html.escape(piece, quote=False)
+        if index % 2:
+            converted.append(f"<code>{escaped}</code>")
+        else:
+            escaped = DISPLAY_MATH.sub(r"\\[\1\\]", escaped)
+            converted.append(INLINE_MATH.sub(r"\\(\1\\)", escaped))
+    return "".join(converted).replace("\n", "<br>")
 
 
 def stable_deck_id(name: str) -> int:
@@ -104,11 +114,26 @@ def article_label(path: Path) -> str:
     article = path.with_name(path.name.removesuffix(CARD_SUFFIX) + ".md")
     if not article.exists():
         sys.exit(f"{path}: no article {article.name} beside it")
-    first_line = article.read_text().splitlines()[0]
-    match = LABEL_LINE.match(first_line)
+    lines = article.read_text().splitlines()
+    match = LABEL_LINE.match(lines[0]) if lines else None
     if match is None:
         sys.exit(f"{article}: first line isn't a label like (topic-label)=")
     return match.group(1)
+
+
+def load_cards(path: Path) -> list[dict[str, Any]]:
+    """The cards in one file, checked for the fields every card needs."""
+    content = yaml.safe_load(path.read_text())
+    if not isinstance(content, dict) or not isinstance(content.get("cards"), list):
+        sys.exit(f"{path}: expected a mapping with a 'cards' list")
+    for card in content["cards"]:
+        missing = [
+            field for field in ("id", "front", "back") if not isinstance(card.get(field), str)
+        ]
+        if missing:
+            sys.exit(f"{path}: card {card.get('id', '?')!r} is missing {', '.join(missing)}")
+    cards: list[dict[str, Any]] = content["cards"]
+    return cards
 
 
 def find_card_files(root: Path) -> list[CardFile]:
@@ -124,7 +149,7 @@ def find_card_files(root: Path) -> list[CardFile]:
             path,
             deck_for(path, root),
             article_label(path),
-            yaml.safe_load(path.read_text())["cards"],
+            load_cards(path),
         )
         for path in paths
     ]

@@ -24,7 +24,7 @@ warn_unused_ignores = true
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
-testpaths = ["src", "papers"]
+testpaths = ["src", "papers", "tools"]
 python_files = ["*_test.py", "test_*.py"]
 
 # Wiki toolchain. Install with `pip install --group docs` (pip >= 25.1).
