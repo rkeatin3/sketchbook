@@ -21,6 +21,7 @@ module's own `docs/` holds that module's articles.
 | Module hub | `src/<area>/<module>/README.md` |
 | Article about a module's code | `src/<area>/<module>/docs/<topic>.md` |
 | Article with no code | `docs/concepts/<topic>.md` |
+| Flashcards for an article | Beside it: `<topic>.cards.yaml` |
 | Glossary entry | `docs/glossary.md` |
 | Citation | `docs/references.bib` |
 
