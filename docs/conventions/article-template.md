@@ -56,15 +56,20 @@ Worked examples by hand, plus pointers to runnable targets in `examples/`.
 
 ## Exercises
 
-Problems to work, by hand or in code, one `exercise` block each. Cite course
+Problems to work, by hand or in code, one `exercise` block each. Give each a
+short title naming its source ("HW 1 §2.A", "Note 1, Problem 2", "Coding")
+and `:nonumber:`, since numbers would run across the whole wiki. Cite course
 and textbook problems by source and number, with a link, rather than copying
-them. Start coding exercises with _Coding:_ and name the target to build.
-Label each one `topic-label-ex-short-name`. A worked solution goes in a
-`solution` block right after its exercise, collapsed with `:class: dropdown`.
-Keep the heading, even if empty, until the article is finished.
+them. For coding exercises, name the target to build. Label each one
+`topic-label-ex-short-name`, and link to one with explicit text:
+`` {ref}`HW 1 §2.A <topic-label-ex-short-name>` ``. A worked solution goes
+in a `solution` block right after its exercise, collapsed with
+`:class: dropdown`. Keep the heading, even if empty, until the article is
+finished.
 
-:::{exercise}
+:::{exercise} HW 1 §2.A
 :label: topic-label-ex-short-name
+:nonumber:
 
 ROB 530 [Homework 1][hw1], §2.A: what the problem asks, in a few words.
 :::
