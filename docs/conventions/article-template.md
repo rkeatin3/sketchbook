@@ -54,6 +54,13 @@ Testing strategy: oracles, invariants, and edge cases. Link the test file.
 
 Worked examples by hand, plus pointers to runnable targets in `examples/`.
 
+## Exercises
+
+Problems to work, by hand or in code. Cite course and textbook problems by
+source and number, with a link, rather than copying them. Mark coding
+exercises with a target to build. A worked solution goes directly below its
+problem.
+
 ## See also
 
 - {ref}`related-label`: one line on how it relates
