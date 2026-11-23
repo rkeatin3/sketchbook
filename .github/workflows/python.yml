@@ -34,7 +34,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install mypy
+      # pytest ships type hints; strict mode rejects its decorators without them.
+      - run: pip install mypy pytest
 
       - name: mypy
         run: |
