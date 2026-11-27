@@ -24,6 +24,7 @@ Background with no code of its own is in {doc}`concepts/index`.
 | Module | Topic | Builds on |
 |---|---|---|
 | {doc}`tracking </src/robotics/tracking/README>` | Multi-object tracking, data association | filtering |
+| {doc}`behavior </src/robotics/behavior/README>` | State machines and behavior trees, compared | patterns |
 
 ## Software
 
@@ -54,6 +55,7 @@ concepts/index
 :caption: Robotics
 
 /src/robotics/tracking/README
+/src/robotics/behavior/README
 ```
 
 ```{toctree}

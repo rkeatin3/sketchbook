@@ -1,0 +1,12 @@
+# cc_* rules come from rules_cc. Uncomment alongside the template below.
+# load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+# Runnable demonstrations for the behavior module.
+#
+# cc_binary(
+#     name = "example",
+#     srcs = ["example.cpp"],
+#     deps = ["//src/robotics/behavior"],
+# )

@@ -30,7 +30,8 @@ With learning as the main goal, the priorities are:
 - `src/math/`: Lie groups
 - `src/estimation/`: Bayesian filtering (histogram, Kalman-family, particle)
   and factor graphs
-- `src/robotics/`: multi-object tracking
+- `src/robotics/`: multi-object tracking, and state machines vs. behavior
+  trees
 - `src/patterns/`: design patterns in modern C++
 - `src/utilities/`: data structures and concurrency primitives
 - `papers/`: paper reproductions and a reading queue
