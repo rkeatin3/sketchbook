@@ -15,7 +15,7 @@ _What problem this solves, and where it shows up in a real system._
 
 ## Prerequisites
 
-- Probability: multivariate Gaussians
+- {doc}`Probability </src/math/probability/README>`
 - {doc}`Lie Groups </src/math/lie_groups/README>` (for 3D states)
 
 ## Roadmap
@@ -25,7 +25,7 @@ filters as its estimators. Each step gets its own write-up.
 
 1. **The Bayes filter and a histogram filter.** The general predict–update
    recursion, implemented on a grid (e.g. 1D or 2D localization with a
-   multimodal belief). Sets up the Kalman filter as the recursion's Gaussian
+   multimodal belief). See {ref}`bayes-filter`. Sets up the Kalman filter as the recursion's Gaussian
    special case, and gives the estimator interface a non-Gaussian
    implementation to design around.
 2. **Linear Kalman filter** with a constant-velocity model, validated with
@@ -42,6 +42,8 @@ representations are the evidence for what that interface needs.
 
 ```{toctree}
 :maxdepth: 1
+
+docs/bayes_filter
 ```
 
 ## Related modules
