@@ -9,6 +9,13 @@ concurrency:
   group: cpp-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# The runner's default g++ is 13, which lacks C++23 features the repository
+# uses (deducing this, std::print, std::ranges::to). Bazel's autodetected
+# toolchain compiles with $CC. //src/cpp/features:support_test checks the
+# features the inventory marks as available.
+env:
+  CC: gcc-14
+
 jobs:
   build-test:
     name: Build & test

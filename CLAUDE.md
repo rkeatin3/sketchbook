@@ -46,6 +46,8 @@ conservative reading.
   derivation. Comments give the why and the mathematical meaning.
 - **Modern C++.** Prefer the newest construct the toolchain supports, and say
   why when it isn't obvious. Flag newer-standard features that would help.
+  The feature and idiom inventories in `src/cpp/` are the checklist, and
+  their "Used in" columns stay current.
 - **Documentation** is a Sphinx + MyST wiki built from the repository root.
   Module hubs are `src/<area>/<module>/README.md`. Articles cover one concept
   each and sit in their module's `docs/`; articles with no code go in

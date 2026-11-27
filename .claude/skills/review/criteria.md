@@ -15,7 +15,38 @@ Work through these in order. Earlier items matter more.
 - Invariants: what each type promises (a normalized distribution, a symmetric
   positive semidefinite covariance), and whether every operation keeps it.
 
-## 2. Readability and maintainability
+## 2. Modern C++ and idioms
+
+Learning modern C++ is one of this repository's goals, so after correctness,
+the most useful finding is a feature or idiom the code should be using. The
+checklists are the inventories in `src/cpp/features/README.md` and
+`src/cpp/idioms/README.md`. Read both before reviewing code.
+
+- **Missed features and idioms.** Where an inventory entry would make the
+  code clearer, safer, or more expressive, suggest it: name it, link its
+  article if there is one, and say what it buys here. Label these
+  **Suggestion**, never Nit. Look actively, not only at what stands out:
+  accessor overload pairs, unconstrained templates, raw loops that are a
+  range algorithm, error codes and out-parameters, hand-written comparison
+  operators, manual resource handling, values of the same type that are easy
+  to mix up.
+- **Spread the practice.** When several would fit, prefer an entry whose
+  "Used in" cell is empty.
+- **Superseded idioms.** Flag every older form listed under "Superseded" in
+  the idioms inventory, with its modern replacement.
+- **Toolchain.** Suggest only features whose Toolchain column says "both".
+  Mention "macOS only", "CI only", and C++26 features as future options.
+- **Inventory upkeep.** When the change uses an inventory entry, its "Used
+  in" cell should link the new code. When it uses a feature or idiom the
+  inventories don't list, suggest a new row.
+- **Basics.** `const` correctness, value semantics, RAII, no raw owning
+  pointers, `[[nodiscard]]` on results that must not be dropped.
+
+Readability still decides a real conflict: if a newer construct makes the
+code harder to follow next to its article, it isn't an improvement. When
+that's the reason not to suggest one, say so.
+
+## 3. Readability and maintainability
 
 This repository puts readability ahead of performance. Could someone
 relearning the topic years from now follow the code next to its article?
@@ -37,22 +68,6 @@ Minimal code documentation, as plain comments (no Doxygen):
   failure behavior (what throws, what returns an error). Skip comments that
   only restate the name.
 - Template parameters and concepts say what they require.
-
-## 3. Modern C++
-
-The toolchain is C++23. Point out where a newer construct says the same thing
-more clearly or more safely, and why:
-
-- concepts and `requires` clauses instead of unconstrained templates or SFINAE
-- ranges and views, `std::span`, `std::mdspan`
-- `std::expected` and `std::optional` for fallible results
-- `std::format` and `std::print`
-- `constexpr` and `consteval` where values are known at compile time
-- deducing `this`, designated initializers, structured bindings
-- C++26 features worth knowing about, flagged as future options
-
-Also check the basics: `const` correctness, value semantics, RAII, no raw
-owning pointers, `[[nodiscard]]` on results that must not be dropped.
 
 ## 4. Design
 
@@ -106,6 +121,7 @@ underflow in products of probabilities, singular cases.
   the code implements is named.
 - Cross-links resolve, "See also" is complete, and `PROGRESS.md` and the
   plan's status tables reflect the change.
+- The C++ inventories' "Used in" cells reflect the change (see §2).
 
 ## 9. Scope
 

@@ -29,6 +29,7 @@ Background with no code of its own is in {doc}`concepts/index`.
 
 | Module | Topic |
 |---|---|
+| {doc}`modern C++ </src/cpp/README>` | Language features and idioms, and where the repository uses them |
 | {doc}`patterns </src/patterns/README>` | Design patterns, and how modern C++ changes them |
 | {doc}`containers </src/utilities/containers/README>` | Data structures from scratch: ring buffer, … |
 | {doc}`concurrency </src/utilities/concurrency/README>` | Thread pool, synchronization, the memory model |
@@ -60,6 +61,7 @@ concepts/index
 :hidden:
 :caption: Software
 
+/src/cpp/README
 /src/patterns/README
 /src/utilities/README
 ```
