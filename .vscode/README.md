@@ -8,6 +8,10 @@
   Bazel files, and points clangd at the compilation database (`../.clangd`).
 - **Tasks:** `Cmd+Shift+P → Run Task` has shortcuts for build, test,
   regenerating `compile_commands.json`, and running pre-commit (`tasks.json`).
+  "Test current package" runs the tests next to the open file; the filtered
+  variant prompts for a googletest filter such as `GaussianPdf.*`.
+- **CodeLens:** each target in a `BUILD.bazel` file has "Build" and "Test"
+  links above it.
 
 The compilation database is generated locally and gitignored. Create it once
 after cloning:
