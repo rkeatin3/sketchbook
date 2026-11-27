@@ -43,9 +43,14 @@ What is done and what is next. Updated as work lands.
 
 None started.
 
+## Agent skills
+
+In `.claude/skills/`: `review` (criteria shared with the CI review),
+`docs-check`, `hint`, `scaffold-article`, `course-map`, and `flashcards`
+(with `tools/flashcards.py` for the Anki package).
+
 ## Next up
 
 1. Tracking phase 0: foundations and the 2D simulator (see the
    [tracking roadmap](src/robotics/tracking/docs/roadmap.md)).
-2. Sketch the repo's agent skills (`.claude/skills/`).
-3. Seed the papers reading queue.
+2. Seed the papers reading queue.

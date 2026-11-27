@@ -34,7 +34,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install mypy
+      # pytest ships type hints; strict mode rejects its decorators without them.
+      - run: pip install mypy pytest
 
       - name: mypy
         run: |
@@ -53,7 +54,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pytest pytest-cov
+      # Dependency groups need pip >= 25.1.
+      - run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov
+          pip install --group flashcards
 
       - name: pytest
         run: |
