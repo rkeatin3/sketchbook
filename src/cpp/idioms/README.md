@@ -34,6 +34,8 @@ policy-based design, are in {ref}`module-patterns` instead.
 | Hidden friends | | | |
 | Non-virtual interface | | | |
 | Passkey | | | |
+| Null object | | | |
+| Mixins | deducing `this` in place of a CRTP base | {ref}`deducing-this` | |
 | Scope guard | | | |
 | Immediately invoked lambda for `const` initialization | | | |
 | `overloaded` lambda set for `std::visit` | | | |
@@ -48,7 +50,6 @@ policy-based design, are in {ref}`module-patterns` instead.
 | Tag dispatch | `if constexpr`, concepts | | |
 | Erase–remove | `std::erase_if` | | |
 | `const` and non-`const` overload pairs | deducing `this` | {ref}`deducing-this` | |
-| CRTP base for mixins | deducing `this` | {ref}`deducing-this` | |
 | Out-parameters and error codes | `std::expected`, `std::optional` | | |
 | `printf` and `iostream` formatting | `std::format`, `std::print` | | |
 | Pointer and length pairs | `std::span` | | |
