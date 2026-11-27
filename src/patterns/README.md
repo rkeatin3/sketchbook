@@ -16,10 +16,25 @@ they recur throughout the robotics modules. In particular, the swappable
 components of the {doc}`tracker </src/robotics/tracking/README>` exercise all
 three.
 
-Several others have a natural home too: `state` for a track's lifecycle
-(tentative, confirmed, deleted), `prototype` for cloning particle filter
-hypotheses, `adapter` for sensor and dataset interfaces, `iterator` for custom
-ranges, and `external_polymorphism` as the stepping stone to `type_erasure`.
+Several others have a natural home too:
+
+- `state` for a track's lifecycle (tentative, confirmed, deleted). The
+  classical polymorphic form is the baseline, and a closed set of states is
+  where `std::variant` and `std::visit` offer the modern alternative.
+- `prototype` where hypotheses are polymorphic, such as trackers that keep a
+  different motion model per hypothesis. Plain particles are value types,
+  copied without any `clone()`, which is the contrast to draw with value
+  semantics and type erasure.
+- `adapter` for sensor and dataset interfaces.
+- `iterator` for custom ranges: conforming iterators, views, and
+  `std::generator`.
+- `external_polymorphism` as the stepping stone to `type_erasure`.
+
+The rest are catalogue entries with no robotics use planned yet, so an empty
+"Used in" cell for them isn't a to-do.
+
+The table is ordered by how often each pattern is expected to recur here, a
+guess to revisit as the "Used in" column fills in.
 
 | Pattern | Status | Used in |
 |---|---|---|
