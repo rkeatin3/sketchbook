@@ -1,0 +1,21 @@
+# cc_* rules come from rules_cc. Uncomment alongside the template below.
+# load("@rules_cc//cc:cc_library.bzl", "cc_library")
+# load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
+package(default_visibility = ["//visibility:public"])
+
+# Template — chain_of_responsibility pattern.
+#
+# cc_library(
+#     name = "chain_of_responsibility",
+#     hdrs = glob(["*.hpp"]),
+# )
+#
+# cc_test(
+#     name = "chain_of_responsibility_test",
+#     srcs = glob(["*_test.cpp"]),
+#     deps = [
+#         ":chain_of_responsibility",
+#         "@googletest//:gtest_main",
+#     ],
+# )

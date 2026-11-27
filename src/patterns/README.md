@@ -16,20 +16,37 @@ they recur throughout the robotics modules. In particular, the swappable
 components of the {doc}`tracker </src/robotics/tracking/README>` exercise all
 three.
 
+Several others have a natural home too: `state` for a track's lifecycle
+(tentative, confirmed, deleted), `prototype` for cloning particle filter
+hypotheses, `adapter` for sensor and dataset interfaces, `iterator` for custom
+ranges, and `external_polymorphism` as the stepping stone to `type_erasure`.
+
 | Pattern | Status | Used in |
 |---|---|---|
 | strategy | — | |
 | crtp | — | |
 | type_erasure | — | |
+| external_polymorphism | — | |
 | visitor | — | |
 | observer | — | |
 | decorator | — | |
+| adapter | — | |
+| bridge | — | |
+| prototype | — | |
+| state | — | |
+| iterator | — | |
 | builder | — | |
 | factory | — | |
 | template_method | — | |
 | policy_based | — | |
 | command | — | |
 | composite | — | |
+| facade | — | |
+| chain_of_responsibility | — | |
+| proxy | — | |
+| memento | — | |
+| mediator | — | |
+| flyweight | — | |
 | singleton | — | |
 
 ```{toctree}
