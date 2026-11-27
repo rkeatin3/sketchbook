@@ -9,7 +9,16 @@ concepts replace much of the inheritance-heavy design.
 
 Each pattern gets one article, `src/patterns/<pattern>/README.md`, covering the
 problem it solves, the classical formulation, the modern C++ formulation, the
-trade-offs, and where it appears in this repository.
+trade-offs, when not to use it, and where it appears in this repository. "When
+not to use it" is as important as the rest: what the pattern costs
+(indirection, coupling, hidden global state, harder testing), the misuses it
+invites, and the simpler alternative that is often enough, such as a plain
+function, a lambda, or a value type.
+
+All patterns share one namespace, `patterns`, which holds only reusable
+abstractions (a type-erasure helper, a generic observer). Types that exist
+only to demonstrate a pattern stay in its test or example file, in an
+anonymous namespace, so demonstrations of different patterns can't clash.
 
 `strategy`, `crtp`, and `type_erasure` are the natural starting points, since
 they recur throughout the robotics modules. In particular, the swappable
