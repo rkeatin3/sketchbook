@@ -52,4 +52,5 @@ conservative reading.
   `docs/concepts/`. Link by label, never by file path, and cross-link
   generously. See `docs/conventions/` for the template and syntax.
 - **Build:** Bazel with bzlmod only. One namespace per module, named after
-  it (e.g. `probability`); naming follows `.clang-tidy`.
+  it (e.g. `probability`), except that all of `src/patterns/` shares
+  `patterns`; naming follows `.clang-tidy`.
