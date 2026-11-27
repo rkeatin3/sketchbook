@@ -1,7 +1,8 @@
 """Sphinx configuration for the sketchbook wiki.
 
 The source directory is the repository root, so articles can live in their
-module's docs/ directory under src/. This file sits in docs/ and is selected with ``-c docs``:
+module's docs/ directory under src/. This file sits in docs/ and is selected
+with ``-c docs``:
 
     sphinx-build -c docs -W --keep-going . docs/_build/html
 
@@ -78,3 +79,7 @@ html_theme_options = {
 
 # Hover previews for internal references and citations.
 tippy_enable_mathjax = True
+# Wikipedia and DOI previews are fetched over the network at build time, so a
+# slow or unreachable API would fail the strict (-W) build.
+tippy_enable_wikitips = False
+tippy_enable_doitips = False
