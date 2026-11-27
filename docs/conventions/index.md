@@ -8,6 +8,7 @@ later, is unambiguous on its own and connected to everything it depends on.
 
 notation
 article-template
+cpp-article-template
 ```
 
 ## Where pages live
@@ -21,6 +22,7 @@ module's own `docs/` holds that module's articles.
 | Module hub | `src/<area>/<module>/README.md` |
 | Article about a module's code | `src/<area>/<module>/docs/<topic>.md` |
 | Article with no code | `docs/concepts/<topic>.md` |
+| C++ feature or idiom | `src/cpp/{features,idioms}/docs/<topic>.md` ({doc}`template <cpp-article-template>`) |
 | Flashcards for an article | Beside it: `<topic>.cards.yaml` |
 | Glossary entry | `docs/glossary.md` |
 | Citation | `docs/references.bib` |

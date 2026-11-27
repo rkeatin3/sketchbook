@@ -39,6 +39,17 @@ What is done and what is next. Updated as work lands.
 | containers  | — | — | — |
 | concurrency | — | — | — |
 
+## Modern C++
+
+Feature and idiom inventories in `src/cpp/`, checked by every review.
+`//src/cpp/features:support_test` checks the features available on both
+toolchains.
+
+| Module | Articles | Experiments |
+|---|---|---|
+| features | 1 scaffolded (deducing `this`) | — |
+| idioms   | — | — |
+
 ## Design patterns
 
 None started.
@@ -54,3 +65,6 @@ In `.claude/skills/`: `review` (criteria shared with the CI review),
 1. Tracking phase 0: foundations and the 2D simulator (see the
    [tracking roadmap](src/robotics/tracking/docs/roadmap.md)).
 2. Seed the papers reading queue.
+3. Modern C++ upkeep: convert the C++ articles' Exercises to `{exercise}`
+   blocks once sphinx-exercise is enabled; recheck the feature inventory's
+   toolchain gaps on compiler upgrades, and assess the C++26 rows.

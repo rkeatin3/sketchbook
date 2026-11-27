@@ -1,0 +1,18 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_test(
+    name = "support_test",
+    srcs = ["support_test.cpp"],
+)
+
+# Feature experiments, one test per article: <feature>_test.cpp.
+#
+# load("@rules_cc//cc:cc_test.bzl", "cc_test")  # already loaded above
+#
+# cc_test(
+#     name = "deducing_this_test",
+#     srcs = ["deducing_this_test.cpp"],
+#     deps = ["@googletest//:gtest_main"],
+# )

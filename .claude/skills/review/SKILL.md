@@ -8,7 +8,8 @@ description: Review the current branch's changes (or a given PR) before opening 
 Review a change the way the CI bot will, so its findings are dealt with
 before the PR exists. The criteria live in [criteria.md](criteria.md), shared
 with `.github/workflows/claude-review.yml`. Read them first, along with
-`CLAUDE.md`.
+`CLAUDE.md` and, for code, the feature and idiom inventories in `src/cpp/`
+(criteria §2).
 
 ## 1. Find the change
 
@@ -47,6 +48,8 @@ Report findings as criteria.md describes. Then:
 - **Ryan's code and derivations:** report only. Don't fix them, and don't
   include replacement implementations; point toward the fix.
 - **Docs, tooling, tests, and scaffolding Claude wrote:** fix the findings
-  directly, rerun the checks, and list what changed.
+  directly, rerun the checks, and list what changed. This includes the C++
+  inventories: fill in "Used in" cells and add rows for features the change
+  uses, even when the code itself is Ryan's.
 
 Don't commit, push, or open the PR unless Ryan explicitly asks.

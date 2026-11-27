@@ -16,6 +16,10 @@ Follow `docs/conventions/index.md`:
 - An article about a module's code goes in `src/<area>/<module>/docs/<topic>.md`;
   an article with no code in `docs/concepts/<topic>.md`. Prefer a code home:
   if the topic can be checked in code, it belongs in a module.
+- A C++ feature or idiom goes in `src/cpp/{features,idioms}/docs/`, from
+  `docs/conventions/cpp-article-template.md`; link it from its inventory row.
+  Its Motivation, Rules, and Pitfalls get "_To work out:_" questions, like a
+  derivation.
 - File name in `snake_case`; label in `kebab-case`, named after the topic.
   Check the label isn't already taken (`grep -rn "^(label)=" .`).
 
