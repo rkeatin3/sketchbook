@@ -2,10 +2,11 @@
 # Design Patterns
 
 Patterns from Gamma et al.'s *Design Patterns* and Iglberger's *C++ Software
-Design*, implemented in modern C++. Where possible, each one is motivated by a real need in the robotics
-modules rather than a toy example. The point is to show how modern C++ changes
-the classical formulations: type erasure, `std::variant` with `std::visit`, and
-concepts replace much of the inheritance-heavy design.
+Design*, implemented in modern C++. Where possible, each one is motivated by
+a real need in the robotics modules rather than a toy example. The point is to
+show how modern C++ changes the classical formulations: type erasure,
+`std::variant` with `std::visit`, and concepts replace much of the
+inheritance-heavy design.
 
 Each pattern gets one article, `src/patterns/<pattern>/README.md`, covering the
 problem it solves, the classical formulation, the modern C++ formulation, the
@@ -18,7 +19,10 @@ function, a lambda, or a value type.
 All patterns share one namespace, `patterns`, which holds only reusable
 abstractions (a type-erasure helper, a generic observer). Types that exist
 only to demonstrate a pattern stay in its test or example file, in an
-anonymous namespace, so demonstrations of different patterns can't clash.
+anonymous namespace, so demonstrations of different patterns can't clash. The
+abstractions get descriptive names (`patterns::Signal`, `patterns::AnyShape`),
+never a bare pattern name like `state` or `iterator`, which would collide with
+each other and with the standard library.
 
 `strategy`, `crtp`, and `type_erasure` are the natural starting points, since
 they recur throughout the robotics modules. In particular, the swappable
