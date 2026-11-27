@@ -25,6 +25,12 @@ the business logic can be tested without the machine.
   and not about different problems.
 - **Self-contained.** The toy problems run in their own minimal world with
   console output, so they don't wait on the tracking simulator.
+- **One world, shared.** Each toy problem's world, actions, and conditions are
+  a library target in `examples/` that every engine's example depends on, not
+  code copied into each example.
+- **New vocabulary goes in the glossary.** Terms like tick, blackboard,
+  guard, superstate, and history are introduced with `{term}` and added to
+  the {doc}`glossary </docs/glossary>` as the articles are written.
 
 ## Toy problems
 
@@ -65,7 +71,7 @@ Candidates are in Open questions.
 | 4 | The toy problem on the hierarchical machine | {ref}`hierarchical-state-machine` |
 | 5 | The behavior tree engine and its tests | {ref}`behavior-tree` |
 | 6 | The toy problem on the behavior tree | {ref}`behavior-tree` |
-| 7 | The contrast problem on the structure it favors, and on the other | {ref}`state-machines-vs-behavior-trees` |
+| 7 | The contrast problem on all three structures, like the primary problem | {ref}`state-machines-vs-behavior-trees` |
 | 8 | The comparison write-up | {ref}`state-machines-vs-behavior-trees` |
 
 Step 0 comes first because it fixes the business logic that every engine

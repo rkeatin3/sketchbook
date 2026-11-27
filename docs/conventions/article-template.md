@@ -73,3 +73,6 @@ Worked examples by hand, plus pointers to runnable targets in `examples/`.
   in the text where it appears and in "See also".
 - **Write it to be read later.** Say why each step holds, not only what the step
   is.
+- **Structural topics** (a state machine, a behavior tree) have a model to
+  work out rather than equations to derive. Their articles title the
+  Derivation section "Model" and leave out "Numerical considerations".

@@ -31,7 +31,7 @@ What is done and what is next. Updated as work lands.
 | Module | Articles | Implementation | Tests | Examples |
 |---|---|---|---|---|
 | tracking | — | — | — | — |
-| behavior | 4 scaffolded, plan | — | — | — |
+| behavior | 4 scaffolded | — | — | — |
 
 ## Utilities
 

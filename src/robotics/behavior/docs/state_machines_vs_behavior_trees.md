@@ -16,8 +16,8 @@ to use each.
 ## The toy problems
 
 See the {ref}`behavior-plan` for the patrol-and-recharge problem and the
-contrast problem. Its world, actions, and conditions are written once (step
-0), with no decision logic, and each engine drives them.
+contrast problem. The patrol-and-recharge world, actions, and conditions are
+written once (step 0), with no decision logic, and each engine drives them.
 
 ## Comparison
 
@@ -28,9 +28,9 @@ _To work out, from the implementations:_
   under what assumptions.
 - Adding a behavior: what changes in each implementation when a new task
   or a new interrupt is added?
-- Reactivity: how each handles the low-battery interrupt, and the
-  resumption afterward.
-- History: how each handles "give up after three tries".
+- Reactivity: how each handles the low-battery interrupt.
+- History: how each resumes what it was doing after the recharge.
+- Retries and fallback: how each handles "give up after three tries".
 - Reuse: how each reuses "go to a location".
 - Readability: which is easier to follow for each toy problem, and why.
 - Testing: how each engine and each client is tested.
@@ -54,7 +54,7 @@ structure.
 
 1. _Coding:_ Add a new interrupt to the toy problem (an obstacle, a call for
    help) in all three implementations, and record what changed in each.
-2. _Coding:_ Implement the contrast problem on both kinds of structure.
+2. _Coding:_ Implement the contrast problem on all three structures.
 
 ## See also
 

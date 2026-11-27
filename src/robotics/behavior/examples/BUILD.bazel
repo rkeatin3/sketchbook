@@ -1,12 +1,23 @@
 # cc_* rules come from rules_cc. Uncomment alongside the template below.
 # load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+# load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
-# Runnable demonstrations for the behavior module.
+# Toy problems for the behavior module (see docs/plan.md). Each problem's
+# world, actions, and conditions are one library, with no decision logic,
+# shared by one example per engine.
+#
+# cc_library(
+#     name = "patrol_world",
+#     hdrs = ["patrol_world.hpp"],
+# )
 #
 # cc_binary(
-#     name = "example",
-#     srcs = ["example.cpp"],
-#     deps = ["//src/robotics/behavior"],
+#     name = "patrol_fsm",
+#     srcs = ["patrol_fsm.cpp"],
+#     deps = [
+#         ":patrol_world",
+#         "//src/robotics/behavior",
+#     ],
 # )
