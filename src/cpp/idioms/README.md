@@ -53,7 +53,7 @@ policy-based design, are in {ref}`module-patterns` instead.
 | Out-parameters and error codes | `std::expected`, `std::optional` | | |
 | `printf` and `iostream` formatting | `std::format`, `std::print` | | |
 | Pointer and length pairs | `std::span` | | |
-| Index loops over parallel arrays | ranges and views | | |
+| Hand-written loops that are a standard algorithm | `std::ranges` algorithms and views | | |
 
 ## Articles
 
