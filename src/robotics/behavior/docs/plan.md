@@ -25,9 +25,10 @@ the business logic can be tested without the machine.
   and not about different problems.
 - **Self-contained.** The toy problems run in their own minimal world with
   console output, so they don't wait on the tracking simulator.
-- **One world, shared.** Each toy problem's world, actions, and conditions are
-  a library target in `examples/` that every engine's example depends on, not
-  code copied into each example.
+- **One world per toy problem, shared.** Each toy problem's world, actions,
+  and conditions are their own library target in `examples/`, which every
+  engine's example for that problem depends on, not code copied into each
+  example.
 - **New vocabulary goes in the glossary.** Terms like tick, blackboard,
   guard, superstate, and history are introduced with `{term}` and added to
   the {doc}`glossary </docs/glossary>` as the articles are written.

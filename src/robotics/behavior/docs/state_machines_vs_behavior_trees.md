@@ -38,8 +38,8 @@ _To work out, from the implementations:_
 
 ## Implementation
 
-The comparison's evidence, in `examples/`: one target per toy problem and
-structure.
+The comparison's evidence, in `examples/`: each toy problem's world library,
+and one example target per toy problem and structure.
 
 ## Examples
 

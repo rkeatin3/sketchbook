@@ -6,7 +6,8 @@ package(default_visibility = ["//visibility:public"])
 
 # Toy problems for the behavior module (see docs/plan.md). Each problem's
 # world, actions, and conditions are one library, with no decision logic,
-# shared by one example per engine.
+# shared by one example per engine. The contrast problem follows the same
+# shape as patrol-and-recharge below.
 #
 # cc_library(
 #     name = "patrol_world",
