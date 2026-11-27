@@ -83,10 +83,13 @@ jobs:
       - name: Install clang-tidy
         run: sudo apt-get update && sudo apt-get install -y clang-tidy
 
+      # The matcher turns findings, including compile errors that carry no
+      # check name, into annotations on the PR diff. GitHub shows at most 10
+      # warnings and 10 errors per step; the rest are only in this step's log.
       - name: Run clang-tidy
         run: |
-          git ls-files -z '*.cpp' '*.cc' \
-            | xargs -0 --no-run-if-empty clang-tidy -p .
+          echo "::add-matcher::.github/clang-tidy-matcher.json"
+          tools/clang_tidy.sh
 
   coverage:
     name: Coverage
